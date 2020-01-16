@@ -2,14 +2,14 @@
   "development": {
     "username": "root",
     "password": "Yesyesno1!",
-    "database": "burgers_db",
+    "database": "tempo",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "Yesyesno1!",
-    "database": "burgers_db",
+    "database": "tempo",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false

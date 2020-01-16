@@ -28,6 +28,10 @@ module.exports = function(app) {
     res.render("bandlogin");
   });
 
+  app.get("/bandregister", function(req, res) {
+    res.render("bandregister");
+  });
+
   app.get("/fanlogin", function(req, res) {
     res.render("fanlogin");
   });

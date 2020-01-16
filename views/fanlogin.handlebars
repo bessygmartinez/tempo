@@ -1,0 +1,57 @@
+<div id="home">
+  <div class="container fill overlay-color">
+    <div class="row">
+      <div class="col-12">
+        {{!-- <h1>{{msg}}</h1> --}}
+        {{!-- <div class="text-center"><img src="/img/Tempo_logo.png" height="300"><p>KEEPING IT UP WITH IT.</p></div> --}}
+        <div class="jumbotron my-0 overlay-white">
+
+          <div class="row mb-3">
+            <div class="col-12">
+              <h1 class="display-3">FAN LOGIN</h1>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 text-left">
+              <form class="clearfix my-3" action="POST">
+          <div class="form-group">
+            <label for="fan-login-text">Login:</label>
+            <input type="text" id="fan-login-text" class="form-control" aria-describedby="fan-login-text" placeholder="Enter Your Login">
+          </div>
+          <div class="form-group">
+            <label for="fan-login-password">Password:</label>
+            <input class="form-control" id="fan-login-password" aria-describedby="fan-login-password" placeholder="Enter Your Password">
+          </div>
+          <button id="submit" class="btn btn-success float-right">Submit</button>
+        </form>
+            </div>
+          </div>
+        </div>
+        {{!-- <form class="clearfix my-5" action="POST">
+          <div class="form-group">
+            <label for="example-text">Example Text</label>
+            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+          </div>
+          <div class="form-group">
+            <label for="example-description">Example Description</label>
+            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+          </div>
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+        <h3>Examples:</h3>
+        <ul id="example-list" class="list-group mb-4">
+          {{#each examples}}
+          <li data-id="{{this.id}}" class="list-group-item">
+            <a href="example/{{this.id}}">{{this.text}}</a>
+            <button class="btn btn-danger float-right delete">ｘ</button>
+          </li>
+          {{/each}}
+        </ul> --}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>

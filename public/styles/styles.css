@@ -1,3 +1,20 @@
+html, body {
+  height: 100vh;
+}
+
 .list-group-item {
   line-height: 2.5;
+}
+
+.overlay-color {
+  background-color: rgba(238, 245, 219, 0.85);
+}
+
+.overlay-white {
+  background-color: rgba(255,255,255,0.6)
+}
+
+.fill {
+  height: 100vh;
+  max-height: 100vh;
 }

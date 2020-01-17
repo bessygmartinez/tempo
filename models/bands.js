@@ -1,10 +1,14 @@
 module.exports = function(sequelize, DataTypes) {
-  var Bands = sequelize.define("Bands", {
-    name: DataTypes.STRING,
-    photoURL: DataTypes.STRING,
-    hometown: DataTypes.STRING,
-    genre: DataTypes.STRING,
-    bio: DataTypes.TEXT
+  var Bands = sequelize.define("bands", {
+    bandID: {
+      type: DataTypes.INTEGER,
+      primaryKey: true
+    },
+    bandName: DataTypes.STRING,
+    bandPhotoURL: DataTypes.STRING,
+    bandHometown: DataTypes.STRING,
+    bandGenre: DataTypes.STRING,
+    bandBio: DataTypes.TEXT
   });
   return Bands;
 };

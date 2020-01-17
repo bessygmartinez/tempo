@@ -5,8 +5,20 @@ module.exports = function(app) {
   app.get("/", function(req, res) {
     db.Example.findAll({}).then(function(dbExamples) {
       res.render("index", {
-        msg: "YO!",
-        examples: dbExamples
+        msg: "Hello!",
+        example: dbExamples
+      });
+    });
+  });
+
+  app.get("/bands/:name", function(req, res) {
+    db.Bands.findOne({ where: { name: req.params.name } }).then(function(dbBands) {
+      res.render("dbbandpage", {
+        name: dbBands.name,
+        photoURL: dbBands.photoURL,
+        hometown: dbBands.hometown,
+        genre: dbBands.genre,
+        bio: dbBands.bio
       });
     });
   });

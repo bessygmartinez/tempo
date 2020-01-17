@@ -55,9 +55,9 @@ CREATE TABLE merch (
 
 CREATE TABLE user (
 	userId INT AUTO_INCREMENT PRIMARY KEY,
-	Email VARCHAR(255) NOT NULL,
-	Password VARCHAR(255) NOT NULL,
-	AccountType VARCHAR(11),
+	email VARCHAR(255) NOT NULL,
+	password VARCHAR(255) NOT NULL,
+	accountType VARCHAR(11),
 	createdAt DATETIME,
     updatedAt DATETIME
 );

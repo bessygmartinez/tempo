@@ -11,16 +11,24 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/bands/:name", function(req, res) {
-    db.Bands.findOne({ where: { name: req.params.name } }).then(function(dbBands) {
-      res.render("dbbandpage", {
-        name: dbBands.name,
-        photoURL: dbBands.photoURL,
-        hometown: dbBands.hometown,
-        genre: dbBands.genre,
-        bio: dbBands.bio
+  app.get("/bands/:bandName", function(req, res) {
+    db.bands
+      .findOne({
+        where: { bandName: req.params.bandName }
+      })
+      .then(function(dbBands) {
+        if (dbBands === null) {
+          res.render("404");
+        } else {
+          res.render("dbbandpage", {
+            bandName: dbBands.bandName,
+            bandPhotoURL: dbBands.bandPhotoURL,
+            bandHometown: dbBands.bandHometown,
+            bandGenre: dbBands.bandGenre,
+            bandBio: dbBands.bandBio
+          });
+        }
       });
-    });
   });
 
   // Load example page and pass in an example by id

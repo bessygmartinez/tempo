@@ -3,6 +3,7 @@ var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
+var $tourdatesBtn = $("#tour-dates-btn");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -94,6 +95,13 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+var modalToggle = function() {
+  $("#tour-dates").modal("toggle");
+}
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+//Even listeners for tour dates modal
+$tourdatesBtn.on("click", modalToggle);

@@ -1,8 +1,6 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
-var keys = require("./keys.js");
-var bandsintown = require("bandsintown")(keys.bandsintown.app_id);
 
 var db = require("./models");
 

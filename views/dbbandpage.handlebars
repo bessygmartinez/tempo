@@ -1,18 +1,25 @@
 <div class="container  overlay-color">
-  <div class="row">
-    <div class="col-12 text-center">
-      <div class="jumbotron my-0 overlay-white">
+  <div class="row mt-0">
+    <div class="col-12 text-center my-0">
+      <div class="jumbotron my-0 pt-3 overlay-white">
         <h1 class="display-2 band-name">{{bandName}}</h1>
         <hr>
-        <img src="{{bandPhotoURL}}" width="600" class="img-fluid border border-secondary">
-        <hr>
-        <p class="text-justify"><strong>Hometown:</strong> {{bandHometown}}</p>
-        <p class="text-justify"><strong>Genre:</strong> {{bandGenre}}</p>
-        <h3 class="display-4 text-left">Bio</h3>
-        <p class="text-justify mt-3">{{bandBio}}</p>
-
-        <p class="text-justify"><button id="tour-dates-btn" type="button" class="btn btn-success"
-            data-dismiss="modal">Upcoming Tour Dates</button></p>
+        <div class="col-6 float-left">
+          <img src="{{bandPhotoURL}}" width="600" class="img-fluid border border-secondary">
+          <button id="tour-dates-btn" type="button" class="btn btn-success mt-5"
+            data-dismiss="modal">Upcoming Tour Dates</button>
+        </div>
+        <div class="col-6 float-right">
+          <p class="text-justify band-info"><strong>Hometown:</strong> {{bandHometown}}</p>
+          <p class="text-justify band-info"><strong>Genre:</strong> {{bandGenre}}</p>
+          <p class="text-justify band-info"><strong>Bio:</strong> {{bandBio}}</p>
+          
+        </div>
+        <div class="clearfix"></div>
+        <div class="col-12">
+          
+        </div>
+        
         <hr>
       </div>
 

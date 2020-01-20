@@ -1,3 +1,5 @@
+const Discog = require("./discogs.js");
+
 module.exports = function(sequelize, DataTypes) {
   var Bands = sequelize.define("bands", {
     bandID: {
@@ -10,5 +12,10 @@ module.exports = function(sequelize, DataTypes) {
     bandGenre: DataTypes.STRING,
     bandBio: DataTypes.TEXT
   });
+
+Bands.associate = (models) => {
+    Bands.hasMany(models.discogs, {foreignKey: "bandID"});
+}
+
   return Bands;
 };

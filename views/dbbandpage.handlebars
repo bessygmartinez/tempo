@@ -6,25 +6,46 @@
         <hr>
         <div class="col-6 float-left">
           <img src="{{bandPhotoURL}}" width="600" class="img-fluid border border-secondary">
-          <button id="tour-dates-btn" type="button" class="btn btn-success mt-5"
-            data-dismiss="modal">Upcoming Tour Dates</button>
+          <button id="tour-dates-btn" type="button" class="btn btn-lg btn-block btn-success my-4" data-dismiss="modal">Tour
+            Dates</button>
         </div>
         <div class="col-6 float-right">
           <p class="text-justify band-info"><strong>Hometown:</strong> {{bandHometown}}</p>
           <p class="text-justify band-info"><strong>Genre:</strong> {{bandGenre}}</p>
           <p class="text-justify band-info"><strong>Bio:</strong> {{bandBio}}</p>
-          
         </div>
         <div class="clearfix"></div>
-        <div class="col-12">
-          
+        <div class="col-12 my-4">
+          <hr>
+          <h1 class="display-4 band-name">Discography</h1>
         </div>
-        
-        <hr>
-      </div>
 
+        <div class="col-12 text-left">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Album Name</th>
+                <th scope="col">Album Year</th>
+                <th scope="col">Number of Tracks</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each albums}}
+              <tr>
+                <td>{{this.discTitle}}</td>
+                <td>{{this.discYear}}</td>
+                <td>{{this.discTracks}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
     </div>
+
   </div>
+</div>
 
 </div>
 
@@ -34,8 +55,8 @@
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title text-center">{{bandName}} Tour Dates</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        </button>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          </button>
       </div>
       <div class="modal-body">
         <p>Tour dates would go here</p>
@@ -46,4 +67,4 @@
     </div>
   </div>
 </div>
-  <script src="/js/index.js"></script>
+<script src="/js/index.js"></script>

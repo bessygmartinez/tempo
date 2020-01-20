@@ -1,25 +1,24 @@
 {
-  "development": {
-    "username": "root",
-    "password": "Yesyesno1!",
-    "database": "tempo",
-    "host": "localhost",
-    "dialect": "mysql",
-    "define": {
-      "timestamps": false
+    "development": {
+        "username": "root",
+        "password": "password1234",
+        "database": "tempo",
+        "host": "localhost",
+        "dialect": "mysql",
+        "define": {
+            "timestamps": false
+        }
+    },
+    "test": {
+        "username": "root",
+        "password": "Yesyesno1!",
+        "database": "tempo",
+        "host": "localhost",
+        "dialect": "mysql",
+        "logging": false
+    },
+    "production": {
+        "use_env_variable": "JAWSDB_URL",
+        "dialect": "mysql"
     }
-  },
-  "test": {
-    "username": "root",
-    "password": "Yesyesno1!",
-    "database": "tempo",
-    "host": "localhost",
-    "dialect": "mysql",
-    "logging": false
-  },
-  "production": {
-    "use_env_variable": "JAWSDB_URL",
-    "dialect": "mysql"
-  }
 }
-

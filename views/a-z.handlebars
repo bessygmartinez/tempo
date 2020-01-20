@@ -1,0 +1,40 @@
+<div class="container fill overlay-color">
+  <div class="row mt-0">
+    <div class="col-12 text-center my-0">
+      <div class="jumbotron fill my-0 pt-3 overlay-white">
+
+        <h1 class="display-2 band-name">Band Directory A-Z</h1>
+        <hr>
+        <div class="col-6 text-left float-left">
+          {{#each bandName}}
+          <p>
+          <a href="/bands/{{this.bandName}}" class="text-success">{{this.bandName}}</a>
+          {{/each}}</p>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- Modal for tour dates -->
+<div id="tour-dates" class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-scrollable" role="list">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-center">{{bandName}} Tour Dates</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          </button>
+      </div>
+      <div class="modal-body">
+        <p>Tour dates would go here</p>
+      </div>
+      <div class="modal-footer text-right">
+        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script src="/js/index.js"></script>

@@ -14,9 +14,23 @@ module.exports = function(app) {
   app.get("/bands/:bandName", function(req, res) {
     db.bands
       .findOne({
+        include: [db.discogs],
         where: { bandName: req.params.bandName }
       })
       .then(function(dbBands) {
+
+        let albumObj = [];
+
+        for (let i = 0; i < dbBands.discogs.length; i++) {
+          let albumInfo = {};
+
+          albumInfo["discTitle"] = dbBands.discogs[i].discTitle;
+          albumInfo["discYear"] = dbBands.discogs[i].discYear;
+          albumInfo["discTracks"] = dbBands.discogs[i].discTracks;
+
+          albumObj.push(albumInfo);
+        }
+
         if (dbBands === null) {
           res.render("404");
         } else {
@@ -25,8 +39,10 @@ module.exports = function(app) {
             bandPhotoURL: dbBands.bandPhotoURL,
             bandHometown: dbBands.bandHometown,
             bandGenre: dbBands.bandGenre,
-            bandBio: dbBands.bandBio
+            bandBio: dbBands.bandBio,
+            albums: albumObj
           });
+          console.log(albumObj);
         }
       });
   });

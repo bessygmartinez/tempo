@@ -62,10 +62,10 @@ module.exports = function (app) {
                       popBands: popBands,
                       rockBands: rockBands
                     })
+                  });
+              });
           });
-        });
       });
-    });
   });
 
   app.get("/bands/:bandName", function (req, res) {
@@ -140,7 +140,23 @@ module.exports = function (app) {
   });
 
   app.get("/bandregister", function (req, res) {
-    res.render("bandregister");
+    db.account_types
+      .findAll({
+        // attributes: 
+        //   ["displayName"],
+        //   raw: true
+      })
+      .then(function (displayNames) {
+        let accountTypes = [];
+        for (let i = 0; i < displayNames.length; i++) {
+          accountTypes.push(displayNames[i])
+        }
+
+        res.render("bandregister", {
+          bandType: accountTypes[0].displayName,
+          fanType: accountTypes[1].displayName
+        })
+      });
   });
 
   app.get("/fanlogin", function (req, res) {

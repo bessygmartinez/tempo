@@ -1,9 +1,9 @@
 var db = require("../models");
 
-module.exports = function(app) {
+module.exports = function (app) {
   // Load index page
-  app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  app.get("/", function (req, res) {
+    db.Example.findAll({}).then(function (dbExamples) {
       res.render("index", {
         msg: "Hello!",
         example: dbExamples
@@ -11,12 +11,12 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/bands/a-z", function(req, res) {
+  app.get("/bands/a-z", function (req, res) {
     db.bands
       .findAll({
         order: [["bandName", "ASC"]]
       })
-      .then(function(dbBands) {
+      .then(function (dbBands) {
         let bands = [];
         for (let i = 0; i < dbBands.length; i++) {
           bands.push(dbBands[i])
@@ -27,45 +27,86 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/bands/:bandName", function(req, res) {
+  app.get("/bands/bygenre", function (req, res) {
+    db.bands.findAll({ where: { bandGenre: "Hip-Hop/R&B" } })
+      .then(function (allHipHop) {
+        let hipHopBands = [];
+        for (let i = 0; i < allHipHop.length; i++) {
+          hipHopBands.push(allHipHop[i])
+        }
+
+        db.bands.findAll({ where: { bandGenre: "Jazz" } })
+          .then(function (allJazz) {
+            let jazzBands = [];
+            for (let i = 0; i < allJazz.length; i++) {
+              jazzBands.push(allJazz[i])
+            }
+
+            db.bands.findAll({ where: { bandGenre: "Pop" } })
+              .then(function (allPop) {
+                let popBands = [];
+                for (let i = 0; i < allPop.length; i++) {
+                  popBands.push(allPop[i])
+                }
+
+                db.bands.findAll({ where: { bandGenre: "Rock" } })
+                  .then(function (allRock) {
+                    let rockBands = [];
+                    for (let i = 0; i < allRock.length; i++) {
+                      rockBands.push(allRock[i])
+                    }
+
+                    res.render("bygenre", {
+                      hipHopBands: hipHopBands,
+                      jazzBands: jazzBands,
+                      popBands: popBands,
+                      rockBands: rockBands
+                    })
+          });
+        });
+      });
+    });
+  });
+
+  app.get("/bands/:bandName", function (req, res) {
     db.bands
       .findOne({
         where: { bandName: req.params.bandName },
         include: [
-          {model: db.discogs}, 
-          {model: db.tours}
-        ]  
+          { model: db.discogs },
+          { model: db.tours }
+        ]
       })
-      .then(function(dbBands) {
+      .then(function (dbBands) {
         if (dbBands === null || db.discogs === null) {
           res.render("404");
         } else {
 
-        let albumObj = [];
+          let albumObj = [];
 
-        for (let i = 0; i < dbBands.discogs.length; i++) {
-          let albumInfo = {};
+          for (let i = 0; i < dbBands.discogs.length; i++) {
+            let albumInfo = {};
 
-          albumInfo["discTitle"] = dbBands.discogs[i].discTitle;
-          albumInfo["discYear"] = dbBands.discogs[i].discYear;
-          albumInfo["discTracks"] = dbBands.discogs[i].discTracks;
+            albumInfo["discTitle"] = dbBands.discogs[i].discTitle;
+            albumInfo["discYear"] = dbBands.discogs[i].discYear;
+            albumInfo["discTracks"] = dbBands.discogs[i].discTracks;
 
-          albumObj.push(albumInfo);
-        }
+            albumObj.push(albumInfo);
+          }
 
           let toursObj = []
 
-        for (let i = 0; i < dbBands.tours.length; i++) {
-          let tourInfo = {};
+          for (let i = 0; i < dbBands.tours.length; i++) {
+            let tourInfo = {};
 
-          tourInfo["tourVenue"] = dbBands.tours[i].tourVenue;
-          tourInfo["tourCity"] = dbBands.tours[i].tourCity;
-          tourInfo["tourState"] = dbBands.tours[i].tourState;
-          tourInfo["tourDate"] = dbBands.tours[i].tourDate;
-          tourInfo["tourTime"] = dbBands.tours[i].tourTime;
-          
-          toursObj.push(tourInfo);
-        }
+            tourInfo["tourVenue"] = dbBands.tours[i].tourVenue;
+            tourInfo["tourCity"] = dbBands.tours[i].tourCity;
+            tourInfo["tourState"] = dbBands.tours[i].tourState;
+            tourInfo["tourDate"] = dbBands.tours[i].tourDate;
+            tourInfo["tourTime"] = dbBands.tours[i].tourTime;
+
+            toursObj.push(tourInfo);
+          }
 
           res.render("dbbandpage", {
             bandName: dbBands.bandName,
@@ -82,32 +123,32 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+  app.get("/example/:id", function (req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function (dbExample) {
       res.render("example", {
         example: dbExample
       });
     });
   });
 
-  app.get("/about", function(req, res) {
+  app.get("/about", function (req, res) {
     res.render("about");
   });
 
-  app.get("/bandlogin", function(req, res) {
+  app.get("/bandlogin", function (req, res) {
     res.render("bandlogin");
   });
 
-  app.get("/bandregister", function(req, res) {
+  app.get("/bandregister", function (req, res) {
     res.render("bandregister");
   });
 
-  app.get("/fanlogin", function(req, res) {
+  app.get("/fanlogin", function (req, res) {
     res.render("fanlogin");
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.render("404");
   });
 };

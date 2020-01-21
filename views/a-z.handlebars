@@ -5,13 +5,19 @@
 
         <h1 class="display-2 band-name">Band Directory A-Z</h1>
         <hr>
-        <div class="col-6 text-left float-left">
-          {{#each bandName}}
-          <p style="font-size: large; font-weight:bold;">
-          <a href="/bands/{{this.bandName}}" class="text-success">{{this.bandName}}</a>
-          {{/each}}</p>
+        <div class="col-10 mx-auto">
+          <table class="table table-striped text-center">
+            <tbody>
+              <tr>
+                {{#each bandName}}
+              <td style="font-size: large; font-weight:bold;"><a href="/bands/{{this.bandName}}"
+                  class="text-success">{{this.bandName}}</a></td>
+              </tr>
+            {{/each}}              
+            </tbody>
+          </table>
         </div>
-        
+
 
       </div>
     </div>

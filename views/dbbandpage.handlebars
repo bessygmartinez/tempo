@@ -6,44 +6,96 @@
         <hr>
         <div class="col-6 float-left">
           <img src="{{bandPhotoURL}}" width="600" class="img-fluid border border-secondary">
-          <button id="tour-dates-btn" type="button" class="btn btn-success mt-5"
-            data-dismiss="modal">Upcoming Tour Dates</button>
+          <button id="tour-dates-btn" type="button" class="btn btn-lg btn-block btn-success my-4"
+            data-dismiss="modal">Tour
+            Dates</button>
         </div>
         <div class="col-6 float-right">
           <p class="text-justify band-info"><strong>Hometown:</strong> {{bandHometown}}</p>
           <p class="text-justify band-info"><strong>Genre:</strong> {{bandGenre}}</p>
           <p class="text-justify band-info"><strong>Bio:</strong> {{bandBio}}</p>
-          
         </div>
         <div class="clearfix"></div>
-        <div class="col-12">
-          
+        <div class="col-12 my-4">
+          <hr>
+          <h1 class="display-4 band-name">Discography</h1>
         </div>
-        
-        <hr>
-      </div>
 
+        <div class="col-12 text-left">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Album Name</th>
+                <th scope="col">Album Year</th>
+                <th scope="col">Number of Tracks</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each albums}}
+              <tr>
+                <td>{{this.discTitle}}</td>
+                <td>{{this.discYear}}</td>
+                <td>{{this.discTracks}}</td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+
+      </div>
     </div>
+
   </div>
+</div>
 
 </div>
 
 <!-- Modal for tour dates -->
 <div id="tour-dates" class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-scrollable" role="list">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="list">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title text-center">{{bandName}} Tour Dates</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        </button>
+        <h3 class="modal-title text-center"><strong>{{bandName}} Tour Dates</strong></h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          </button>
       </div>
-      <div class="modal-body">
-        <p>Tour dates would go here</p>
+      <div class="modal-body text-center">
+        <div class="col-12 text-left">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th scope="col">Venue</th>
+                <th scope="col">Location</th>
+                <th scope="col">Date</th>
+                <th scope="col">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each tours}}
+              <tr>
+                <td>{{this.tourVenue}}</td>
+                <td>{{this.tourCity}}, {{tourState}}</td>
+                {{#if tourDate}}
+                <td>{{this.tourDate}}</td>
+                {{else}}
+                <td>TBA</td>
+                {{/if}}
+                {{#if tourTime}}
+                <td>{{this.tourTime}}</td>
+                {{else}}
+                <td>TBA</td>
+                {{/if}}
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+
       </div>
       <div class="modal-footer text-right">
-        <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-lg btn-success" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
 </div>
-  <script src="/js/index.js"></script>
+<script src="/js/index.js"></script>

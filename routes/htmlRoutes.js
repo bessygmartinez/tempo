@@ -30,19 +30,53 @@ module.exports = function(app) {
   app.get("/bands/:bandName", function(req, res) {
     db.bands
       .findOne({
-        where: { bandName: req.params.bandName }
+        where: { bandName: req.params.bandName },
+        include: [
+          {model: db.discogs}, 
+          {model: db.tours}
+        ]  
       })
       .then(function(dbBands) {
-        if (dbBands === null) {
+        if (dbBands === null || db.discogs === null) {
           res.render("404");
         } else {
+
+        let albumObj = [];
+
+        for (let i = 0; i < dbBands.discogs.length; i++) {
+          let albumInfo = {};
+
+          albumInfo["discTitle"] = dbBands.discogs[i].discTitle;
+          albumInfo["discYear"] = dbBands.discogs[i].discYear;
+          albumInfo["discTracks"] = dbBands.discogs[i].discTracks;
+
+          albumObj.push(albumInfo);
+        }
+
+          let toursObj = []
+
+        for (let i = 0; i < dbBands.tours.length; i++) {
+          let tourInfo = {};
+
+          tourInfo["tourVenue"] = dbBands.tours[i].tourVenue;
+          tourInfo["tourCity"] = dbBands.tours[i].tourCity;
+          tourInfo["tourState"] = dbBands.tours[i].tourState;
+          tourInfo["tourDate"] = dbBands.tours[i].tourDate;
+          tourInfo["tourTime"] = dbBands.tours[i].tourTime;
+          
+          toursObj.push(tourInfo);
+        }
+
           res.render("dbbandpage", {
             bandName: dbBands.bandName,
             bandPhotoURL: dbBands.bandPhotoURL,
             bandHometown: dbBands.bandHometown,
             bandGenre: dbBands.bandGenre,
-            bandBio: dbBands.bandBio
+            bandBio: dbBands.bandBio,
+            albums: albumObj,
+            tours: toursObj
           });
+          console.log(toursObj);
         }
       });
   });

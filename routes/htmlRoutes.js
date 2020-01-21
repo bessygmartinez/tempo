@@ -11,6 +11,22 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/bands/a-z", function(req, res) {
+    db.bands
+      .findAll({
+        order: [["bandName", "ASC"]]
+      })
+      .then(function(dbBands) {
+        let bands = [];
+        for (let i = 0; i < dbBands.length; i++) {
+          bands.push(dbBands[i])
+        }
+        res.render("a-z", {
+          bandName: bands
+        });
+      });
+  });
+
   app.get("/bands/:bandName", function(req, res) {
     db.bands
       .findOne({

@@ -1,0 +1,22 @@
+<div class="container fill overlay-color">
+  <div class="row mt-0">
+    <div class="col-12 text-center my-0">
+      <div class="jumbotron fill my-0 pt-3 overlay-white">
+
+        <h1 class="display-2 band-name">Band Directory A-Z</h1>
+        <hr>
+        <div class="col-6 text-left float-left">
+          {{#each bandName}}
+          <p style="font-size: large; font-weight:bold;">
+          <a href="/bands/{{this.bandName}}" class="text-success">{{this.bandName}}</a>
+          {{/each}}</p>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="/js/index.js"></script>

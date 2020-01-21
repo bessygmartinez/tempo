@@ -14,13 +14,16 @@ module.exports = function(app) {
   app.get("/bands/:bandName", function(req, res) {
     db.bands
       .findOne({
+        where: { bandName: req.params.bandName },
         include: [
           {model: db.discogs}, 
           {model: db.tours}
-        ],
-        where: { bandName: req.params.bandName }
+        ]  
       })
       .then(function(dbBands) {
+        if (dbBands === null || db.discogs === null) {
+          res.render("404");
+        } else {
 
         let albumObj = [];
 
@@ -48,9 +51,6 @@ module.exports = function(app) {
           toursObj.push(tourInfo);
         }
 
-        if (dbBands === null) {
-          res.render("404");
-        } else {
           res.render("dbbandpage", {
             bandName: dbBands.bandName,
             bandPhotoURL: dbBands.bandPhotoURL,

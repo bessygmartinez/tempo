@@ -1,23 +1,32 @@
-var db = require("../models");
+let db = require("../models");
 
 module.exports = function(app) {
-    // Load index page
+    // Load example index page
+    // app.get("/", function(req, res) {
+    //     db.Example.findAll({}).then(function(dbExamples) {
+    //         res.render("index", {
+    //             msg: "Hello!",
+    //             example: dbExamples
+    //         });
+    //     });
+    // });
+    //load bands index page
     app.get("/", function(req, res) {
-        db.Example.findAll({}).then(function(dbExamples) {
+        db.Band.findAll({}).then(function(dbBands) {
             res.render("index", {
                 msg: "Hello!",
-                example: dbExamples
+                example: dbBands
             });
         });
     });
 
-    app.get("/bands/:bandName", function(req, res) {
-        db.bands
+    app.get("/band/:id", function(req, res) {
+        db.Band
             .findOne({
-                where: { bandName: req.params.bandName }
+                where: { id: req.params.bandId }
             })
-            .then(function(dbBands) {
-                if (dbBands === null) {
+            .then(function(dbBand) {
+                if (dbBand === null) {
                     res.render("404");
                 } else {
                     res.render("dbbandpage", {
@@ -32,13 +41,13 @@ module.exports = function(app) {
     });
 
     // Load example page and pass in an example by id
-    app.get("/example/:id", function(req, res) {
-        db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-            res.render("example", {
-                example: dbExample
-            });
-        });
-    });
+    // app.get("/example/:id", function(req, res) {
+    //     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+    //         res.render("example", {
+    //             example: dbExample
+    //         });
+    //     });
+    // });
 
     app.get("/about", function(req, res) {
         res.render("about");

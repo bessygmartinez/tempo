@@ -1,6 +1,6 @@
-module.exports = function(sequelize, DataTypes) {
-    var Bands = sequelize.define("bands", {
-        bandID: {
+module.exports = (sequelize, DataTypes) => {
+    return sequelize.define('Band', {
+        bandId: {
             type: DataTypes.INTEGER,
             primaryKey: true
         },
@@ -9,6 +9,5 @@ module.exports = function(sequelize, DataTypes) {
         bandHometown: DataTypes.STRING,
         bandGenre: DataTypes.STRING,
         bandBio: DataTypes.TEXT
-    });
-    return Bands;
-};
+    })
+}

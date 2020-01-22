@@ -2,7 +2,7 @@ DROP DATABASE IF EXISTS tempo;
 CREATE DATABASE tempo;
 USE tempo;
 /* parent/referenced table */
-CREATE TABLE bands (
+CREATE TABLE band (
 	bandId INT AUTO_INCREMENT PRIMARY KEY,
 	bandName VARCHAR(100) NOT NULL,
 	bandPhotoURL VARCHAR(255),
@@ -19,7 +19,7 @@ CREATE TABLE discog (
 	bandId INT,
 	CONSTRAINT fk_category_discog
 	FOREIGN KEY (bandId)
-		REFERENCES bands(bandId)
+		REFERENCES band(bandId)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
@@ -29,12 +29,12 @@ CREATE TABLE tours (
     tourVenue VARCHAR(255),
 	tourCity VARCHAR(255) NOT NULL,
 	tourState VARCHAR(255) NOT NULL,
-	tourDate DATE NOT NULL,
+	tourDate DATE,
     tourTime TIME,
 	bandId INT,
 	CONSTRAINT fk_category_tours
 	FOREIGN KEY (bandId)
-		REFERENCES bands(bandId)
+		REFERENCES band(bandId)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
@@ -48,7 +48,7 @@ CREATE TABLE merch (
 	bandId INT,
 	CONSTRAINT fk_category_merch
 	FOREIGN KEY (bandId)
-		REFERENCES bands(bandId)
+		REFERENCES band(bandId)
 		ON DELETE CASCADE
 		ON UPDATE CASCADE
 );
@@ -60,4 +60,15 @@ CREATE TABLE user (
 	accountType VARCHAR(11),
 	createdAt DATETIME,
     updatedAt DATETIME
+);
+
+CREATE TABLE accountType (
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    displayName VARCHAR(255) NOT NULL,
+    userId INT,
+	CONSTRAINT fk_category_account_type
+	FOREIGN KEY (userId)
+		REFERENCES user(userId)
+		ON DELETE CASCADE
+		ON UPDATE CASCADE
 );

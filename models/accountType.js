@@ -1,4 +1,4 @@
-const Users = require("./users.js");
+const User = require("./user.js");
 
 module.exports = function(sequelize, DataTypes) {
     var accountType = sequelize.define("accountType", {
@@ -7,10 +7,12 @@ module.exports = function(sequelize, DataTypes) {
             primaryKey: true
         },
         displayName: DataTypes.STRING,
+    }, {
+        freezeTableName: true
     });
 
     accountType.associate = (models) => {
-        accountType.hasMany(models.Users, { foreignKey: "userId" })
+        accountType.hasMany(models.User, { foreignKey: "userId" })
     }
 
     return accountType;

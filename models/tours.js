@@ -1,7 +1,7 @@
 const Band = require("./band.js");
 
 module.exports = function(sequelize, DataTypes) {
-    var Tours = sequelize.define("tours", {
+    var Tours = sequelize.define("Tours", {
         tourId: {
             type: DataTypes.INTEGER,
             primaryKey: true
@@ -16,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
         }
     });
     Tours.associate = (models) => {
-        Tours.belongsTo(models.band, { foreignKey: "bandId" });
+        Tours.belongsTo(models.Band, { foreignKey: "bandId" });
     }
     return Tours;
 };

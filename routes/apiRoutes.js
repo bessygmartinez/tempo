@@ -3,7 +3,7 @@ let db = require("../models");
 module.exports = function(app) {
     // Get all bands
     app.get("/bands", function(req, res) {
-        db.Band.findAll({}).then(function(dbBands) {
+        db.bands.findAll({}).then(function(dbBands) {
             res.json(dbBands);
         });
     });

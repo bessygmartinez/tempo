@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
         discTracks: DataTypes.STRING,
         bandId: {
             type: DataTypes.INTEGER,
-        }
+        }}, {
+        freezeTableName: true
     });
     Discog.associate = (models) => {
         Discog.belongsTo(models.Band, { foreignKey: "bandId" });

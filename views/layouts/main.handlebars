@@ -34,19 +34,21 @@
           BAND DIRECTORY
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/test">A-Z</a>
-          <a class="dropdown-item" href="/">BY GENRE</a>
-          <a class="dropdown-item" href="/">BY CITY</a>
+          <a class="dropdown-item" href="/bands/a-z">A-Z</a>
+          <a class="dropdown-item" href="/bands/bygenre">BY GENRE</a>
           
         </div>
       </li>
     </ul>
 <ul class="navbar-nav mr-5">
-      <li class="nav-item mr-3">
-        <a class="nav-link text-light bg-dark" href="/bandlogin">BAND LOGIN</a>
+      <li class="nav-item mr-3 p-0">
+        <button class="btn btn-dark" onclick="location.href='/bandlogin'">BAND LOGIN</button>
       </li>
-      <li class="nav-item mr-3">
-        <a class="nav-link text-light bg-dark" href="/newband">ADD A BAND</a>
+      <li class="nav-item mr-3 p-0">
+        <button class="btn btn-dark" onclick="location.href='/newband'">ADD A BAND</button>
+      </li>
+      <li class="nav-item mr-3 p-0">
+        <button class="btn btn-outline-success" onclick="location.href='/bandregister'">REGISTER</button>
       </li>
       {{!-- <li class="nav-item">
         <a class="nav-link text-light bg-dark" href="/fanlogin">FOR FANS</a>

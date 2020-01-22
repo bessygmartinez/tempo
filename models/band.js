@@ -11,6 +11,8 @@ module.exports = function(sequelize, DataTypes) {
         bandHometown: DataTypes.STRING,
         bandGenre: DataTypes.STRING,
         bandBio: DataTypes.TEXT
+    }, {
+        freezeTableName: true
     });
 
     Band.associate = (models) => {

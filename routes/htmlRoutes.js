@@ -161,6 +161,10 @@ module.exports = function(app) {
             });
     });
 
+    app.get("/newband", function(req, res) {
+        res.render("newband");
+    });
+
     app.get("/fanlogin", function(req, res) {
         res.render("fanlogin");
     });

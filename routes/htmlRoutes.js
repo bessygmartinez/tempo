@@ -19,6 +19,7 @@ module.exports = function(app) {
                 bandHometown: dbBands.bandHometown,
                 bandGenre: dbBands.bandGenre,
                 bandBio: dbBands.bandBio,
+                // ***need to figure our a way to include these two (use include like she did below to include the album and discography tables)
                 // albums: albumObj,
                 // tours: toursObj
             });

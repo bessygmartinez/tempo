@@ -11,59 +11,82 @@
               <h1 class="display-3">Featured Artist</h1>
             </div>
           </div>
-
-          <div class="row">
-            <div class="col-4 text-center">
-              <img src="/img/TheGitDown_logo.png" width="300">
+    
             </div>
-            <div class="col-8 text-left">
-              <h1 class="display-4">The GitDown</h1>{{bandName}}
-              <p>Miami-based Jazz fusion band with a funky attitude.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Lectus arcu bibendum at varius vel. Cras sed felis eget velit aliquet sagittis id
-                consectetur purus. Semper auctor neque vitae tempus quam pellentesque. Interdum varius sit amet mattis
-                vulputate enim nulla aliquet. Purus gravida quis blandit turpis cursus in hac habitasse platea. Quis
-                risus sed vulputate odio ut enim blandit. Ut tellus elementum sagittis vitae. Rhoncus urna neque viverra
-                justo. Suspendisse ultrices gravida dictum fusce ut.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Lectus arcu bibendum at varius vel. Cras sed felis eget velit aliquet sagittis id
-                consectetur purus. Semper auctor neque vitae tempus quam pellentesque. Interdum varius sit amet mattis
-                vulputate enim nulla aliquet. Purus gravida quis blandit turpis cursus in hac habitasse platea. Quis
-                risus sed vulputate odio ut enim blandit. Ut tellus elementum sagittis vitae. Rhoncus urna neque viverra
-                justo. Suspendisse ultrices gravida dictum fusce ut.</p>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Lectus arcu bibendum at varius vel. Cras sed felis eget velit aliquet sagittis id
-                consectetur purus. Semper auctor neque vitae tempus quam pellentesque. Interdum varius sit amet mattis
-                vulputate enim nulla aliquet. Purus gravida quis blandit turpis cursus in hac habitasse platea. Quis
-                risus sed vulputate odio ut enim blandit. Ut tellus elementum sagittis vitae. Rhoncus urna neque viverra
-                justo. Suspendisse ultrices gravida dictum fusce ut.</p>
+            <div class="container  overlay-color">
+              <div class="row mt-0">
+                <div class="col-12 text-center my-0">
+                  <div class="jumbotron my-0 pt-3 overlay-white">
+                    <h1 class="display-2 band-name">{{bandName}}</h1>
+                    <hr>
+                    <div class="col-6 float-left">
+                      <img src="{{bandPhotoURL}}" width="600" class="img-fluid border border-secondary">
+                      <button id="tour-dates-btn" type="button" class="btn btn-lg btn-block btn-success my-4"
+                        data-dismiss="modal">Tour
+                        Dates</button>
+                    </div>
+                    <div class="col-6 float-right">
+                      <p class="text-justify band-info"><strong>Hometown:</strong> {{bandHometown}}</p>
+                      <p class="text-justify band-info"><strong>Genre:</strong> {{bandGenre}}</p>
+                      <p class="text-justify band-info"><strong>Bio:</strong> {{bandBio}}</p>
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="col-12 my-4">
+                      <hr>
+                      <h1 class="display-4 band-name">Discography</h1>
+                    </div>
+          
+                    <div class="col-12 text-left">
+                      <table class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th scope="col">Album Name</th>
+                            <th scope="col">Album Year</th>
+                            <th scope="col">Number of Tracks</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {{#each albums}}
+                          <tr>
+                            <td>{{this.discTitle}}</td>
+                            <td>{{this.discYear}}</td>
+                            <td>{{this.discTracks}}</td>
+                          </tr>
+                          {{/each}}
+                        </tbody>
+                      </table>
+                    </div>
+          
+                  </div>
+                </div>
+          
+              </div>
             </div>
+          
           </div>
-
-        </div>
-        {{!-- <form class="clearfix my-5" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+          {{!-- <form class="clearfix my-5" action="POST">
+                    <div class="form-group">
+                      <label for="example-text">Example Text</label>
+                      <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+                    </div>
+                    <div class="form-group">
+                      <label for="example-description">Example Description</label>
+                      <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
+                    </div>
+                    <button id="submit" class="btn btn-primary float-right">Submit</button>
+                  </form>
+                  <h3>Examples:</h3>
+                  <ul id="example-list" class="list-group mb-4">
+                    {{#each examples}}
+                    <li data-id="{{this.id}}" class="list-group-item">
+                      <a href="example/{{this.id}}">{{this.text}}</a>
+                      <button class="btn btn-danger float-right delete">ｘ</button>
+                    </li>
+                    {{/each}}
+                  </ul> --}}
           </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
           </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group mb-4">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul> --}}
-      </div>
-    </div>
-  </div>
+          </div>
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

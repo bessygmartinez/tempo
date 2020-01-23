@@ -44,35 +44,35 @@ module.exports = function (app) {
     });
 
     app.get("/bands/bygenre", function (req, res) {
-        db.Band.findAll({ where: { bandGenre: "Electronic" } })
+        db.Band.findAll({ where: { bandGenre: "Electronic" }, order: [[ "bandName", "ASC"]] })
             .then(function (allElectronic) {
                 let electronicBands = [];
                 for (let i = 0; i < allElectronic.length; i++) {
                     electronicBands.push(allElectronic[i])
                 }
 
-                db.Band.findAll({ where: { bandGenre: "Hip-Hop/R&B" } })
+                db.Band.findAll({ where: { bandGenre: "Hip-Hop/R&B" }, order: [[ "bandName", "ASC"]] })
                     .then(function (allHipHop) {
                         let hipHopBands = [];
                         for (let i = 0; i < allHipHop.length; i++) {
                             hipHopBands.push(allHipHop[i])
                         }
 
-                        db.Band.findAll({ where: { bandGenre: "Jazz" } })
+                        db.Band.findAll({ where: { bandGenre: "Jazz" }, order: [[ "bandName", "ASC"]] })
                             .then(function (allJazz) {
                                 let jazzBands = [];
                                 for (let i = 0; i < allJazz.length; i++) {
                                     jazzBands.push(allJazz[i])
                                 }
 
-                                db.Band.findAll({ where: { bandGenre: "Pop" } })
+                                db.Band.findAll({ where: { bandGenre: "Pop" }, order: [[ "bandName", "ASC"]] })
                                     .then(function (allPop) {
                                         let popBands = [];
                                         for (let i = 0; i < allPop.length; i++) {
                                             popBands.push(allPop[i])
                                         }
 
-                                        db.Band.findAll({ where: { bandGenre: "Rock" } })
+                                        db.Band.findAll({ where: { bandGenre: "Rock" }, order: [[ "bandName", "ASC"]] })
                                             .then(function (allRock) {
                                                 let rockBands = [];
                                                 for (let i = 0; i < allRock.length; i++) {

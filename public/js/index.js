@@ -97,7 +97,7 @@ var handleDeleteBtnClick = function() {
 
 var modalToggle = function() {
   $("#tour-dates").modal("toggle");
-}
+};
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);

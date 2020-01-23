@@ -1,12 +1,26 @@
 var db = require("../models");
+var Sequelize = require("sequelize");
+
 
 module.exports = function(app) {
     // Load index page
     app.get("/", function(req, res) {
-        db.Band.findAll({}).then(function(dbBands) {
+        db.Band.findOne({
+            order: Sequelize.literal('rand()'),
+            limit: 1,
+            include: [
+                { model: db.Discog },
+                { model: db.Tours }
+            ]
+        }).then(function(dbBands) {
             res.render("index", {
-                msg: "Hello!",
-                bands: dbBands
+                bandName: dbBands.bandName,
+                bandPhotoURL: dbBands.bandPhotoURL,
+                bandHometown: dbBands.bandHometown,
+                bandGenre: dbBands.bandGenre,
+                bandBio: dbBands.bandBio,
+                // albums: albumObj,
+                // tours: toursObj
             });
         });
     });

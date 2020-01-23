@@ -1,0 +1,1 @@
+var $bandImg = $("#band-img-edit");

@@ -109,13 +109,8 @@ var handleDeleteBtnClick = function() {
 };
 
 var modalToggle = function() {
-<<<<<<< HEAD
   $("#tour-dates").modal("toggle");
 };
-=======
-    $("#tour-dates").modal("toggle");
-}
->>>>>>> 76651b0c2003f1858ce12d50d3ef937e9fe80eee
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);

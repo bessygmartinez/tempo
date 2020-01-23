@@ -39,19 +39,20 @@ CREATE TABLE tours (
 		ON UPDATE CASCADE
 );
 
-CREATE TABLE merch (
-	itemId INT AUTO_INCREMENT PRIMARY KEY,
-    itemName VARCHAR(255),
-	itemType VARCHAR(255) NOT NULL,
-	itemPrice VARCHAR(255) NOT NULL,
-	itemQuantity INT(200)NOT NULL,
-	bandId INT,
-	CONSTRAINT fk_category_merch
-	FOREIGN KEY (bandId)
-		REFERENCES band(bandId)
-		ON DELETE CASCADE
-		ON UPDATE CASCADE
-);
+-- CREATE TABLE merch (
+-- 	itemId INT AUTO_INCREMENT PRIMARY KEY,
+--     itemName VARCHAR(255),
+-- 	itemType VARCHAR(255) NOT NULL,
+-- 	itemPrice VARCHAR(255) NOT NULL,
+-- 	itemQuantity INT(200)NOT NULL,
+-- 	bandId INT,
+-- 	CONSTRAINT fk_category_merch
+-- 	FOREIGN KEY (bandId)
+-- 		REFERENCES band(bandId)
+-- 		ON DELETE CASCADE
+-- 		ON UPDATE CASCADE
+-- );
+-- DROP TABLE merch;
 
 CREATE TABLE user (
 	userId INT AUTO_INCREMENT PRIMARY KEY,

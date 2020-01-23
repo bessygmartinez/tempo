@@ -138,14 +138,14 @@ module.exports = function(app) {
             });
     });
 
-    // Load example page and pass in an example by id
-    app.get("/example/:id", function(req, res) {
-        db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-            res.render("example", {
-                example: dbExample
-            });
-        });
-    });
+    // // Load example page and pass in an example by id
+    // app.get("/example/:id", function(req, res) {
+    //     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+    //         res.render("example", {
+    //             example: dbExample
+    //         });
+    //     });
+    // });
 
     app.get("/about", function(req, res) {
         res.render("about");
@@ -158,9 +158,8 @@ module.exports = function(app) {
     app.get("/bandregister", function(req, res) {
         db.accountType
             .findAll({
-                attributes: 
-                  ["displayName"],
-                  raw: true
+                attributes: ["displayName"],
+                raw: true
             })
             .then(function(displayNames) {
                 let accountTypes = [];

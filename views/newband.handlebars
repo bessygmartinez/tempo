@@ -1,57 +1,131 @@
-<div id="home">
-  <div class="container fill overlay-color">
-    <div class="row">
-      <div class="col-12">
-        {{!-- <h1>{{msg}}</h1> --}}
-        {{!-- <div class="text-center"><img src="/img/Tempo_logo.png" height="300"><p>KEEPING IT UP WITH IT.</p></div> --}}
-        <div class="jumbotron my-0 overlay-white">
+<div class="container overlay-color">
+  <div class="row mt-0">
+    <div class="col-12">
+      <div class="jumbotron my-0 overlay-white pt-5">
 
-                    <div class="row mb-3">
-            <div class="col-12">
-              <h1 class="display-4">ADD A BAND!</h1>
-              <hr>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-12 text-left">
-    <form class="clearfix my-3" action="POST">
-          <div class="form-group">
-            <label for="bandName">Band Name</label>
-            <input type="text" id="bandName" class="form-control" aria-describedby="bandName" placeholder="Enter Your Band's Name" required>
-          </div>
-          <div class="form-group">
-            <label for="bandPhotoURL">Band Picture</label>
-            <input type="text" class="form-control" id="bandPhotoURL" aria-describedby="bandPhotoURL" placeholder="Enter Your Band's Photo URL ">
-          </div>
-          <div class="form-group">
-            <label for="bandHometown">Band Hometown</label>
-            <input type="text" class="form-control" id="bandHometown" aria-describedby="bandHometown" placeholder="Enter Your Band's Hometown">
-          </div>
-          <div class="form-group">
-          </div>
-            <label for="bandGenre">Band Genre</label>
-                <select name="bandGenre" id="bandGenre">
-                    <option value="Rock">Rock</option>
-                    <option value="Pop">Pop</option>
-                    <option value="HipHop/R&B">HipHop/R&B</option>
-                    <option value="Jazz">Jazz</option>
-                    <option value="Other">Other</option>
-                </select>
-          <div class="form-group">
-            <label for="bandPhotoURL">Band Bio</label>
-            <input type="textarea" class="form-control" id="bandBio" aria-describedby="bandBio" placeholder="Enter Your Band's Bio">
-          </div>
-          <button id="submitNewband" class="btn btn-success float-right">Submit</button>
-        </form>
-
-        <p>
-          Don't have a login? <a href="/bandregister" class="text-success"><strong>Sign up</strong></a> to get started.
-        </p>
-            </div>
+        <div class="row mb-1 mt-0">
+          <div class="col-12">
+            <h1 class="display-4 band-name">ADD A BAND!</h1>
+            <hr>
           </div>
         </div>
-        {{!-- <form class="clearfix my-5" action="POST">
+
+        <div class="row">
+          <div class="col-12 text-left">
+            <form class="clearfix my-3" action="POST">
+
+             <label class="input-group-text bg-success text-white col-3" for="bandGenre">Genre</label>
+              <div class="input-group mb-5">
+                <div class="input-group-prepend">
+            
+                </div>
+                <select class="custom-select" id="bandGenre">
+                  <option value="Electronic">Electronic</option>
+                  <option value="HipHop/R&B">HipHop/R&B</option>
+                  <option value="Jazz">Jazz</option>
+                  <option value="Pop">Pop</option>
+                  <option value="Rock">Rock</option>
+                </select>
+              </div>
+
+            <span class="input-group-text bg-success text-white col-3" id="bandNameLabel">Name</span>
+              <div class="input-group mb-5">
+                <div class="input-group-prepend">
+                  
+                </div>
+                <input type="text" class="form-control" placeholder="Enter your band's name" id="bandName" required>
+              </div>
+
+            <span class="input-group-text bg-success text-white col-3" id="bandPhotoLabel">Photo URL</span>
+              <div class="input-group mb-5">
+                <div class="input-group-prepend">
+                  
+                </div>
+                <input type="text" class="form-control" placeholder="Enter your band's photo URL" id="bandPhotoURL"
+                  required>
+              </div>
+
+            <span class="input-group-text bg-success text-white col-3" id="bandHometownLabel">Hometown</span>
+              <div class="input-group mb-5">
+                <div class="input-group-prepend">
+                  
+                </div>
+                <input type="text" class="form-control" placeholder="Enter your band's hometown" id="bandHometown"
+                  required>
+              </div>
+
+            <span class="input-group-text bg-success text-white col-3" id="bandBioLabel">Short Bio</span>
+              <div class="input-group mb-5">
+                <div class="input-group-prepend">
+
+                </div>
+                <textarea class="form-control" placeholder="Tell us about your band" id="bandBio"
+                  required></textarea>
+              </div>
+
+            <span class="input-group-text bg-success text-white col-3" id="bandDiscogLabel">Discography</span>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Album #1 Title</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Album #1 Title" id="discogTitle">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Album #1 Year</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Album #1 Year" id="discogYear">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Album #1 Tracks</span>
+                </div>
+                <input type="text" class="form-control" placeholder="(Number of Tracks)" id="discogTracks">                          
+              </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Album #2 Title</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Album #2 Title" id="discogTitle">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Album #2 Year</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Album #2 Year" id="discogYear">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Album #2 Track #</span>
+                </div>
+                <input type="text" class="form-control" placeholder="(Number of Tracks)" id="discogTracks">                          
+              </div>
+
+                            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Album #3 Title</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Album #3 Title" id="discogTitle">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Album #3 Year</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Album #3 Year" id="discogYear">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Album #3 Track #</span>
+                </div>
+                <input type="text" class="form-control" placeholder="(Number of Tracks)" id="discogTracks">                          
+              </div>
+
+              <button id="submitNewband" class="btn btn-success float-right">Submit</button>
+            </form>
+
+            {{!-- <p>
+                Don't have a login? <a href="/bandregister" class="text-success"><strong>Sign up</strong></a> to get
+                started.
+              </p> --}}
+          </div>
+        </div>
+      </div>
+      {{!-- <form class="clearfix my-5" action="POST">
           <div class="form-group">
             <label for="example-text">Example Text</label>
             <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
@@ -71,7 +145,6 @@
           </li>
           {{/each}}
         </ul> --}}
-      </div>
     </div>
   </div>
 </div>

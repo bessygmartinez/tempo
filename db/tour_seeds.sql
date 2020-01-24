@@ -56,8 +56,8 @@ VALUES ("CAMP FLOG GNAW CARNIVAL", "Los Angeles", "CA", "2019-11-09", "19:00", "
 ("Somerset House Ice Rink", "London", "United Kingdom", "2019-07-11", "19:30", "7");
 
 INSERT INTO tours (tourVenue, tourCity, tourState, tourDate, tourTime, bandID)
-VALUES ("BUKU", "New Orleans", "LA", "2020-03-20", "20:00" "8"),
-("BUKU", "New Orleans", "LA", "2020-03-21", "20:00", "8"),
+VALUES ("BUKU Music + Art Project", "New Orleans", "LA", "2020-03-20", "20:00", "8"),
+("BUKU Music + Art Project", "New Orleans", "LA", "2020-03-21", "20:00", "8"),
 ("Something In The Water", "Virginia Beach", "VA", "2020-04-25", "20:00", "8"),
 ("La Grande halle de La Villette", "Paris", "France", "2020-06-03", null, "8");
 
@@ -176,7 +176,7 @@ VALUES ("Melbourne Showgrounds", "Ascot Vale", "Australia", "2020-03-20", "11:00
 ("Makuhari Messe", "Hibino", "Japan", "2020-03-29", "11:00", "28");
 
 INSERT INTO tours (tourVenue, tourCity, tourState, tourDate, tourTime, bandID)
-VALUES (null, null, null, null, null, "29");
+VALUES ("N/A", "N/A", "N/A", null, null, "29");
 
 INSERT INTO tours (tourVenue, tourCity, tourState, tourDate, tourTime, bandID)
 VALUES ("Spark Arena", "Auckland", "New Zealand", "2020-04-16", "19:00", "30"),

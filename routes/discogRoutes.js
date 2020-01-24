@@ -27,21 +27,21 @@ module.exports = function(app) {
     });
 
     //Create new discography
-    app.post("/api/bands", function(req, res) {
-        let newDisc = new Disc({
-            discTitle: req.body.discTitle,
-            discYear: req.body.discYear,
-            discTracks: req.body.discTracks
-        });
+    app.post("/api/discogs", function(req, res) {
+        // let newDisc = new Disc({
+        //     discTitle: req.body.discTitle,
+        //     discYear: req.body.discYear,
+        //     discTracks: req.body.discTracks
+        // });
         console.log("You hit the discog POST route!");
-        db.Discog.create(newDisc)
+        db.Discog.create(req.body)
         .then(function(dbBand) {
             res.json(dbBand);
         });
     });
 
     //Delete a discog by id
-    app.delete("/api/discog/:discId", function(req, res) {
+    app.delete("/api/discogs/:discId", function(req, res) {
         db.Discog.destroy({
             where: {
                 discId: req.params.discId

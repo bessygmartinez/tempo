@@ -1,28 +1,23 @@
 SELECT * FROM discog;
 
 INSERT INTO discog (discTitle, discYear, discTracks, bandID)
-VALUES ("The Saga Continues", "2017", "18", "1"),
-("Once Upon a Time in Shaolin", "2015", "26", "1"),
-("A Better Tomorrow", "2014", "15", "1"),
-("8 Diagrams", "2007", "14", "1"),
-("Iron Flag", "2001", "13", "1"),
-("The W", "2000", "14", "1"),
-("Wu-Tang Forever", "1997", "29", "1"),
-("Enter the Wu-Tang (36 Chambers)", "1993", "13", "1");
+VALUES ("Pablo Honey", "1993", "18", "1"),
+("The Bends", "1995", "26", "1"),
+("OK Computer", "1997", "15", "1"),
+("Kid A", "2000", "14", "1"),
+("Amnesiac", "2001", "13", "1"),
+("In Rainbows", "2007", "14", "1");
 
 INSERT INTO discog (discTitle, discYear, discTracks, bandID)
-VALUES ("Renegades", "2000", "14", "2"),
-("The Battle of Los Angeles", "1999", "12", "2"),
-("Evil Empire", "1996", "11", "2"),
-("Rage Against the Machine", "1992", "10", "2");
+VALUES ("Little Dark Age", "2018", "14", "2"),
+("Congratulations", "2010", "12", "2"),
+("Oracular Spectacular", "2007", "11", "2"),
+("MGMT", "2013", "10", "2");
 
 INSERT INTO discog (discTitle, discYear, discTracks, bandID)
-VALUES ("IV", "2016", "11", "3"),
-("Toon Time Raw!", "2016", "14", "3"),
-("Sour Soul", "2015", "12", "3"),
-("III", "2014", "9", "3"),
-("BBNG2", "2012", "11", "3"),
-("BBNG", "2011", "12", "3");
+VALUES ("Velour", "2012", "1", "3"),
+("Romance", "2014", "14", "3"),
+("Utopia", "2017", "12", "3");
 
 INSERT INTO discog (discTitle, discYear, discTracks, bandID)
 VALUES ("Ginger", "2019", "12", "4"),

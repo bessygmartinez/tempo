@@ -7,7 +7,7 @@ CREATE TABLE band (
 	bandName VARCHAR(100) NOT NULL,
 	bandPhotoURL VARCHAR(255),
 	bandHometown VARCHAR(100),
-    bandGenre VARCHAR(100),
+    bandGenre VARCHAR(100) NOT NULL,
     bandBio TEXT(1000)
 );
 /*child/referencing table */
@@ -56,9 +56,11 @@ CREATE TABLE tours (
 
 CREATE TABLE user (
 	userId INT AUTO_INCREMENT PRIMARY KEY,
+	firstName VARCHAR(255) NOT NULL,
+	lastName VARCHAR(255) NOT NULL,
 	email VARCHAR(255) NOT NULL,
 	password VARCHAR(255) NOT NULL,
-	accountType VARCHAR(11),
+	accountType VARCHAR(11) DEFAULT 'band', 
 	createdAt DATETIME,
     updatedAt DATETIME
 );

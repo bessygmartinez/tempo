@@ -16,9 +16,9 @@
 
           <div class="row">
             <div class="col-12 text-left">
-              <form class="clearfix my-3" action="POST">
+              <form class="clearfix my-3" id="register" action="POST">
                 
-                  <div class="form-check form-check-inline">
+                  {{!-- <div class="form-check form-check-inline">
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="account-band"
                       value="band">
                     <label class="form-check-label" for="account-band"><h4>{{bandType}}</h4></label>
@@ -27,30 +27,30 @@
                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="account-fan"
                       value="fan">
                     <label class="form-check-label" for="account-fan"><h4>{{fanType}}</h4></label>
-                  </div>
+                  </div> --}}
 
                   <div class="form-group col-8 px-0">
-                  <label for="first-name">First Name:</label>
-                  <input type="text" id="first-name" class="form-control mr-sm-5" aria-describedby="first-name"
-                    placeholder="First Name">
+                  <label for="firstName">First Name:</label>
+                  <input type="text" id="firstName" class="form-control mr-sm-5" aria-describedby="firstName"
+                    placeholder="First Name" required>
 
-                  <label for="last-name" class="mt-3">Last Name: </label>
-                  <input type="text" id="last-name" class="form-control" aria-describedby="last-name"
-                    placeholder="Last Name">
+                  <label for="lastName" class="mt-3">Last Name: </label>
+                  <input type="text" id="lastName" class="form-control" aria-describedby="lastName"
+                    placeholder="Last Name" required>
 
-                  <label for="register-email" class="mt-3">Login Email: </label>
-                  <input type="email" class="form-control" id="register-email" aria-describedby="register-email"
-                    placeholder="Enter Your Email">
+                  <label for="email" class="mt-3">Login Email: </label>
+                  <input type="email" class="form-control" id="email" aria-describedby="email"
+                    placeholder="Enter Your Email" required>
 
-                  <label for="register-pw" class="mt-3">Password: </label>
-                  <input type="password" class="form-control" id="register-pw" aria-describedby="register-pw"
-                    placeholder="Enter Your Desired Password">
+                  <label for="password" class="mt-3">Password: </label>
+                  <input type="password" class="form-control" id="password" aria-describedby="password"
+                    placeholder="Enter Your Desired Password" required>
 
-                  <label for="confirm-pw" class="mt-3">Confirm Password: </label>
+                  {{!-- <label for="confirm-pw" class="mt-3">Confirm Password: </label>
                   <input type="password" class="form-control" id="confirm-pw" aria-describedby="confirm-pw"
-                    placeholder="Confirm Password">
+                    placeholder="Confirm Password"> --}}
 
-                  <button id="register-submit" class="btn btn-success float-left mt-4">Register</button>
+                  <button id="registerBtn" class="btn btn-success float-left mt-4">Register</button>
                 </div>
 
               </form>
@@ -64,4 +64,4 @@
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/js/index.js"></script>
+<script src="/js/signup.js"></script>

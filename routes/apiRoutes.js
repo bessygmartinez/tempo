@@ -1,4 +1,5 @@
 let db = require("../models");
+var passport = require("../config/passport");
 
 module.exports = function(app) {
     // Get all bands
@@ -10,22 +11,46 @@ module.exports = function(app) {
 
     //Create a new band
     app.post("/bands", function(req, res) {
-        // let newBand = new Band({
-        //     bandName: req.body.bandName,
-        //     bandPhotoURL: req.body.bandPhotoURL,
-        //     bandHometown: req.body.bandHometown,
-        //     bandGenre: req.body.bandGenre,
-        //     bandBio: req.body.bandBio
-        // });
-        // console.log("you hit the POST route!");
-        // console.log(newBand);
         db.Band.create(req.body).then(function(dbBand) {
-
-
-            // db.Band.create(newBand).then(function(dbBand) {
-            console.log(dbBand);
             res.json(dbBand);
         });
     });
+
+    //login
+    app.post("/bandlogin", passport.authenticate("local"), function(req, res) {
+        res.json("/dbbandpage");
+    });
+
+    //register
+    app.post("/bandregister", function(req, res) {
+        console.log("posting: ");
+        console.log(req.body);
+        db.User.create(req.body).then(function() {
+            res.redirect("/dbbandpage");
+        }).catch(function(err) {
+            res.json(err);
+        });
+    });
+
+    // // Route for logging user out
+    // app.get("/logout", function(req, res) {
+    //     req.logout();
+    //     res.redirect("/");
+    // });
+    // //
+    // Route for getting some data about our user to be used client side
+    // app.get("/api/user_data", function(req, res) {
+    //     if (!req.user) {
+    //         // The user is not logged in, send back an empty object
+    //         res.json({});
+    //     } else {
+    //         // Otherwise send back the user's email and id
+    //         // Sending back a password, even a hashed password, isn't a good idea
+    //         res.json({
+    //             email: req.user.email,
+    //             id: req.user.id
+    //         });
+    //     }
+    // });
 
 };

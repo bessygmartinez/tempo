@@ -1,4 +1,4 @@
-const Discog = require("./discog.js");
+let db = require("../models");
 
 module.exports = function(sequelize, DataTypes) {
     var Band = sequelize.define("Band", {
@@ -16,8 +16,8 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Band.associate = (models) => {
-        Band.hasMany(models.Discog, { foreignKey: "bandId" });
-        Band.hasMany(models.Tours, { foreignKey: "bandId" });
+        Band.hasMany(models.Discog, { foreignKey: "bandId", onDelete: "CASCADE" });
+        Band.hasMany(models.Tours, { foreignKey: "bandId", onDelete: "CASCADE" });
     }
     return Band;
 };

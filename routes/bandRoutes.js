@@ -29,17 +29,15 @@ module.exports = function(app) {
 
     //Create a new band
     app.post("/api/bands", function(req, res) {
-        let newBand = new Band({
-            bandName: req.body.bandName,
-            bandPhotoURL: req.body.bandPhotoURL,
-            bandGenre: req.body.bandGenre,
-            bandHometown: req.body.bandHometown,
-            bandBio: req.body.bandBio
-        });
+        // let newBand = new Band({
+        //     bandName: req.body.bandName,
+        //     bandPhotoURL: req.body.bandPhotoURL,
+        //     bandGenre: req.body.bandGenre,
+        //     bandHometown: req.body.bandHometown,
+        //     bandBio: req.body.bandBio
+        // });
         console.log("You hit the band POST route!");
-        db.Band.create(newBand)
-        
-        .then(function(dbBand) {
+        db.Band.create(req.body).then(function(dbBand) {
             res.json(dbBand);
         });
     });

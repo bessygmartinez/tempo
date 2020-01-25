@@ -3,9 +3,9 @@ let db = require("../models");
 module.exports = function(app) {
     //Get all bands
     app.get("/api/bands", function(req, res) {
-        db.Band.findAll({
+        db.Bands.findAll({
             include: [
-                { model: db.Discog },
+                { model: db.Discogs },
                 { model: db.Tours }
             ]
         }).then(function(dbBands) {
@@ -14,7 +14,7 @@ module.exports = function(app) {
     });
 
     app.get("/api/bands/:bandId", function(req, res) {
-        db.Band.findOne({
+        db.Bands.findOne({
             include: [
                 { model: db.Discog },
                 { model: db.Tours }
@@ -37,14 +37,14 @@ module.exports = function(app) {
         //     bandBio: req.body.bandBio
         // });
         console.log("You hit the band POST route!");
-        db.Band.create(req.body).then(function(dbBand) {
+        db.Bands.create(req.body).then(function(dbBand) {
             res.json(dbBand);
         });
     });
 
     //Delete a band by id
     app.delete("/api/bands/:bandId", function(req, res) {
-        db.Band.destroy({
+        db.Bands.destroy({
            where: { 
                bandId: req.params.bandId
             }

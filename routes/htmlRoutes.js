@@ -5,11 +5,11 @@ var Sequelize = require("sequelize");
 module.exports = function (app) {
     // Load index page
     app.get("/", function (req, res) {
-        db.Band.findOne({
+        db.Bands.findOne({
             order: Sequelize.literal('rand()'),
             limit: 1,
             include: [
-                { model: db.Discog },
+                { model: db.Discogs },
                 { model: db.Tours }
             ]
         }).then(function (dbBands) {
@@ -26,15 +26,15 @@ module.exports = function (app) {
     });
 
     app.get("/bands/a-z", function (req, res) {
-        db.Band
+        db.Bands
             .findAll({
                 order: [
                     ["bandName", "ASC"]
                 ]
             })
             .then(function (dbBands) {
-                let bands = [];
-                for (let i = 0; i < dbBands.length; i++) {
+                var bands = [];
+                for (var i = 0; i < dbBands.length; i++) {
                     bands.push(dbBands[i])
                 }
                 res.render("a-z", {
@@ -44,37 +44,37 @@ module.exports = function (app) {
     });
 
     app.get("/bands/bygenre", function (req, res) {
-        db.Band.findAll({ where: { bandGenre: "Electronic" }, order: [[ "bandName", "ASC"]] })
+        db.Bands.findAll({ where: { bandGenre: "Electronic" }, order: [[ "bandName", "ASC"]] })
             .then(function (allElectronic) {
-                let electronicBands = [];
+                var electronicBands = [];
                 for (let i = 0; i < allElectronic.length; i++) {
                     electronicBands.push(allElectronic[i])
                 }
 
-                db.Band.findAll({ where: { bandGenre: "Hip-Hop/R&B" }, order: [[ "bandName", "ASC"]] })
+                db.Bands.findAll({ where: { bandGenre: "Hip-Hop/R&B" }, order: [[ "bandName", "ASC"]] })
                     .then(function (allHipHop) {
-                        let hipHopBands = [];
+                        var hipHopBands = [];
                         for (let i = 0; i < allHipHop.length; i++) {
                             hipHopBands.push(allHipHop[i])
                         }
 
-                        db.Band.findAll({ where: { bandGenre: "Jazz" }, order: [[ "bandName", "ASC"]] })
+                        db.Bands.findAll({ where: { bandGenre: "Jazz" }, order: [[ "bandName", "ASC"]] })
                             .then(function (allJazz) {
-                                let jazzBands = [];
+                                var jazzBands = [];
                                 for (let i = 0; i < allJazz.length; i++) {
                                     jazzBands.push(allJazz[i])
                                 }
 
-                                db.Band.findAll({ where: { bandGenre: "Pop" }, order: [[ "bandName", "ASC"]] })
+                                db.Bands.findAll({ where: { bandGenre: "Pop" }, order: [[ "bandName", "ASC"]] })
                                     .then(function (allPop) {
-                                        let popBands = [];
+                                        var popBands = [];
                                         for (let i = 0; i < allPop.length; i++) {
                                             popBands.push(allPop[i])
                                         }
 
-                                        db.Band.findAll({ where: { bandGenre: "Rock" }, order: [[ "bandName", "ASC"]] })
+                                        db.Bands.findAll({ where: { bandGenre: "Rock" }, order: [[ "bandName", "ASC"]] })
                                             .then(function (allRock) {
-                                                let rockBands = [];
+                                                var rockBands = [];
                                                 for (let i = 0; i < allRock.length; i++) {
                                                     rockBands.push(allRock[i])
                                                 }
@@ -94,7 +94,7 @@ module.exports = function (app) {
     });
 
     app.get("/bands/:bandName", function (req, res) {
-        db.Band
+        db.Bands
             .findOne({
                 where: { bandName: req.params.bandName },
                 include: [

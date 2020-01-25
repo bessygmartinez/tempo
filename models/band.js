@@ -10,8 +10,11 @@ module.exports = function(sequelize, DataTypes) {
         bandPhotoURL: DataTypes.STRING,
         bandHometown: DataTypes.STRING,
         bandGenre: DataTypes.STRING,
-        bandBio: DataTypes.TEXT
+        bandBio: DataTypes.TEXT,
     }, {
+        timestamps: false
+    },
+    {
         freezeTableName: true
     });
 

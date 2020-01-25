@@ -9,7 +9,11 @@ module.exports = function(sequelize, DataTypes) {
         discTitle: DataTypes.STRING,
         discYear: DataTypes.STRING,
         discTracks: DataTypes.STRING
-        },{
+        },
+        {
+            timestamps: false
+        },
+        {
             freezeTableName: true
         });
 

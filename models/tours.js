@@ -11,6 +11,9 @@ module.exports = function(sequelize, DataTypes) {
         tourState: DataTypes.STRING,
         tourDate: DataTypes.DATE,
         tourTime: DataTypes.TIME
+    },
+    {
+        timestamps: false
     });
     Tours.associate = (models) => {
         Tours.belongsTo(models.Band, {foreignKey: "bandId", onDelete: "CASCADE" });

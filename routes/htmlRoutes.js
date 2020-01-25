@@ -19,8 +19,8 @@ module.exports = function (app) {
                 bandHometown: dbBands.bandHometown,
                 bandGenre: dbBands.bandGenre,
                 bandBio: dbBands.bandBio,
-                // albums: albumObj,
-                // tours: toursObj
+                // link to band info page when you click on band name--> takes you over to their band info page
+                
             });
         });
     });

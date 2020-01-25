@@ -26,6 +26,10 @@ html, body {
   font-family: 'Roboto', sans-serif;
 }
 
+.band-name-link a:hover {
+  color: #5cb85c;
+}
+
 .band-info {
   font-size: large;
 }

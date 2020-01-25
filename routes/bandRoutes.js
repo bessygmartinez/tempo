@@ -20,7 +20,7 @@ module.exports = function(app) {
                 { model: db.Tours }
             ],
             where: {
-               bandId: req.params.bandId
+                bandId: req.params.bandId
             }
         }).then(function(dbBand) {
             res.json(dbBand);
@@ -42,15 +42,30 @@ module.exports = function(app) {
         });
     });
 
+    //update a new band
+    app.put("/api/bands/:bandId", function(req, res) {
+        // let newBand = new Band({
+        //     bandName: req.body.bandName,
+        //     bandPhotoURL: req.body.bandPhotoURL,
+        //     bandGenre: req.body.bandGenre,
+        //     bandHometown: req.body.bandHometown,
+        //     bandBio: req.body.bandBio
+        // });
+        console.log("You hit the band POST/UPDATE route!");
+        db.Band.create(req.body).then(function(dbBand) {
+            res.json(dbBand);
+        });
+    });
+
     //Delete a band by id
     app.delete("/api/bands/:bandId", function(req, res) {
         db.Band.destroy({
-           where: { 
-               bandId: req.params.bandId
-            }
-        })
-        .then(function(dbBand) {
-            res.json(dbBand);
-        });
+                where: {
+                    bandId: req.params.bandId
+                }
+            })
+            .then(function(dbBand) {
+                res.json(dbBand);
+            });
     });
 };

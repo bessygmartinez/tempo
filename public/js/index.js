@@ -12,100 +12,117 @@ var bandBio = $("#bandBio");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-    saveBand: function(band) {
-        return $.ajax({
-            headers: {
-                "Content-Type": "application/json"
-            },
-            type: "POST",
-            url: "/bands",
-            data: JSON.stringify(band)
-        });
-    },
-    getBand: function() {
-        return $.ajax({
-            url: "/newband",
-            type: "GET"
-        });
-    },
-    deleteBand: function(id) {
-        return $.ajax({
-            url: "/bands" + id,
-            type: "DELETE"
-        });
-    }
+  saveBand: function(band) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "/api/bands",
+      data: JSON.stringify(band)
+    });
+  },
+  getBand: function() {
+    return $.ajax({
+      url: "/newband",
+      type: "GET"
+    });
+  },
+  deleteBand: function(id) {
+    return $.ajax({
+      url: "/bands" + id,
+      type: "DELETE"
+    });
+  }
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshBands = function() {
-    API.getBands().then(function(data) {
-        var bands = data.map(function(band) {
-            var $a = $("<a>")
-                .text(band.text)
-                .attr("href", "/band/" + band.id);
+  API.getBands().then(function(data) {
+    var bands = data.map(function(band) {
+      var $a = $("<a>")
+        .text(band.text)
+        .attr("href", "/api/bands/" + band.id);
 
-            var $li = $("<li>")
-                .attr({
-                    class: "list-group-item",
-                    "data-id": band.id
-                })
-                .append($a);
+      var $li = $("<li>")
+        .attr({
+          class: "list-group-item",
+          "data-id": band.id
+        })
+        .append($a);
 
-            var $button = $("<button>")
-                .addClass("btn btn-danger float-right delete")
-                .text("ｘ");
+      var $button = $("<button>")
+        .addClass("btn btn-danger float-right delete")
+        .text("ｘ");
 
-            $li.append($button);
+      $li.append($button);
 
-            return $li;
-        });
-
-        bandList.empty();
-        bandList.append(bands);
+      return $li;
     });
+
+    bandList.empty();
+    bandList.append(bands);
+  });
 };
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
-    event.preventDefault();
-    console.log(bandGenre);
-    var newBand = {
-        bandName: bandName.val().trim(),
-        bandPhotoURL: bandPhotoURL.val().trim(),
-        bandHometown: bandHometown.val().trim(),
-        bandGenre: bandGenre.val().trim(),
-        bandBio: bandBio.val()
+  event.preventDefault();
+  console.log(bandGenre);
 
-    };
+  var newBand = {
+    bandName: bandName.val().trim(),
+    bandPhotoURL: bandPhotoURL.val().trim(),
+    bandHometown: bandHometown.val().trim(),
+    bandGenre: bandGenre.val().trim(),
+    bandBio: bandBio.val().trim(),
+    bandDiscog: [
+      {
+        discTitle: discTitle.val().trim(),
+        discYear: discYear.val().trim(),
+        discTracks: discTracks.val().trim(),
+        bandId: newBand.bandId
+      }
+    ],
+    bandTours: [
+      {
+        tourVenue: tourVenue.val().trim(),
+        tourCity: tourCity.val().trim(),
+        tourState: tourState.val().trim(),
+        tourDate: tourDate.val().trim(),
+        tourTime: tourTime.val().trim(),
+        bandId: newBand.bandId
+      }
+    ]
+  };
 
-    if (!bandName.text) {
-        alert("You must enter a name for your band!");
-        return;
-    }
+  if (!bandName.text) {
+    alert("You must enter a name for your band!");
+    return;
+  }
 
-    API.saveBand(newBand).then(function() {
-        refreshBands();
-    });
+  API.saveBand(newBand).then(function() {
+    refreshBands();
+  });
 
-    bandName.val("");
-    bandPhotoURL.val("");
-    bandHometown.val("");
-    bandGenre.val("Rock");
-    bandBio.val("");
-
+  bandName.val("");
+  bandPhotoURL.val("");
+  bandHometown.val("");
+  bandGenre.val("Rock");
+  bandBio.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
-    var idToDelete = $(this)
-        .parent()
-        .attr("data-id");
+  var idToDelete = $(this)
+    .parent()
+    .attr("data-id");
 
-    API.deleteExample(idToDelete).then(function() {
-        refreshExamples();
-    });
+  API.deleteExample(idToDelete).then(function() {
+    refreshExamples();
+  });
 };
 
 var modalToggle = function() {

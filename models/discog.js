@@ -1,4 +1,4 @@
-const Band = require("./band.js");
+let db = require("../models");
 
 module.exports = function(sequelize, DataTypes) {
     var Discog = sequelize.define("Discog", {
@@ -8,14 +8,13 @@ module.exports = function(sequelize, DataTypes) {
         },
         discTitle: DataTypes.STRING,
         discYear: DataTypes.STRING,
-        discTracks: DataTypes.STRING,
-        bandId: {
-            type: DataTypes.INTEGER,
-        }}, {
-        freezeTableName: true
-    });
+        discTracks: DataTypes.STRING
+        }, {
+            freezeTableName: true
+        });
+
     Discog.associate = (models) => {
-        Discog.belongsTo(models.Band, { foreignKey: "bandId" });
+        Discog.belongsTo(models.Band, {foreignKey: "bandId", onDelete: "CASCADE" });
     }
     return Discog;
 };

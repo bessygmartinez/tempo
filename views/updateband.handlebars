@@ -5,7 +5,7 @@
 
         <div class="row mb-1 mt-0">
           <div class="col-12">
-            <h1 class="display-4 band-name">ADD A BAND!</h1>
+            <h1 class="display-4 band-name">UPDATE BAND</h1>
             <hr>
           </div>
         </div>
@@ -31,17 +31,15 @@
             <span class="input-group-text bg-success text-white col-3" id="bandNameLabel">Name</span>
               <div class="input-group mb-5">
                 <div class="input-group-prepend">
-                  
                 </div>
-                <input type="text" class="form-control" placeholder="Enter your band's name" id="bandName" required>
+                <input type="text" class="form-control" id="bandName" value={{bandName}} required>
               </div>
 
             <span class="input-group-text bg-success text-white col-3" id="bandPhotoLabel">Photo URL</span>
               <div class="input-group mb-5">
                 <div class="input-group-prepend">
-                  
                 </div>
-                <input type="text" class="form-control" placeholder="Enter your band's photo URL" id="bandPhotoURL"
+                <input type="text" class="form-control" value={{bandPhotoURL}} id="bandPhotoURL"
                   required>
               </div>
 
@@ -50,7 +48,7 @@
                 <div class="input-group-prepend">
                   
                 </div>
-                <input type="text" class="form-control" placeholder="Enter your band's hometown" id="bandHometown"
+                <input type="text" class="form-control" value={{bandHometown}} id="bandHometown"
                   required>
               </div>
 
@@ -59,7 +57,7 @@
                 <div class="input-group-prepend">
 
                 </div>
-                <textarea class="form-control" placeholder="Tell us about your band" id="bandBio"
+                <textarea class="form-control" value={{bandBio}} id="bandBio"
                   required></textarea>
               </div>
 
@@ -115,7 +113,7 @@
                 <input type="text" class="form-control" placeholder="(Number of Tracks)" id="discogTracks">                          
               </div>
 
-              <button id="submitNewband" class="btn btn-success float-right">Submit</button>
+              <button id="submitNewband" class="btn btn-success float-right">Update</button>
             </form>
 
             {{!-- <p>

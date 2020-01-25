@@ -6,23 +6,10 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             primaryKey: true
         },
-        discTitle: {
-            type: DataTypes.STRING,
-            defaultValue: "title"
-        },
-        discYear: {
-            type: DataTypes.STRING,
-            defaultValue: "year"
-        },
-        discTracks: {
-            type: DataTypes.STRING,
-            defaultValue: "tracks"
-        },
-        bandId: {
-            type: DataTypes.INTEGER,
-            allowNull: false
-        }
-        }, {
+        discTitle: DataTypes.STRING,
+        discYear: DataTypes.STRING,
+        discTracks: DataTypes.STRING
+        },{
             freezeTableName: true
         });
 

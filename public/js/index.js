@@ -117,7 +117,6 @@ var handleFormSubmit = function(event) {
     discTitle: discTitle1.val().trim(),
     discYear: discYear1.val().trim(),
     discTracks: discTracks1.val().trim(),
-    bandId: newBandId
   };
 
   var newTours1 = {
@@ -126,7 +125,6 @@ var handleFormSubmit = function(event) {
     tourState: tourState1.val().trim(),
     tourDate: tourDate1.val().trim(),
     tourTime: tourTime1.val().trim(),
-    bandId: newBandId[0]
   };
 
   if (!bandName.text) {

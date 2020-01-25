@@ -9,8 +9,19 @@ var bandPhotoURL = $("#bandPhotoURL");
 var bandHometown = $("#bandHometown");
 var bandGenre = $("#bandGenre");
 var bandBio = $("#bandBio");
+var discTitle1 = $("#discTitle1");
+var discYear1 = $("#discYear1");
+var discTracks1 = $("#discTracks1");
+var tourVenue1 = $("#tourVenue1");
+var tourCity1 = $("#tourCity1");
+var tourState1 = $("#tourState1");
+var tourDate1 = $("#tourDate1");
+var tourTime1 = $("#tourTime1")
 
 // The API object contains methods for each kind of request we'll make
+
+let newBandId = [];
+
 var API = {
   saveBand: function(band) {
     return $.ajax({
@@ -19,7 +30,30 @@ var API = {
       },
       type: "POST",
       url: "/api/bands",
-      data: JSON.stringify(band)
+      data: JSON.stringify(band),
+      complete: function(data){
+        newBandId.push(data.bandId);
+      }
+    });
+  },
+  saveDiscog: function(discog) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "/api/discogs",
+      data: JSON.stringify(discog)
+    });
+  },
+  saveTours: function(tours) {
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "/api/tours",
+      data: JSON.stringify(tours)
     });
   },
   getBand: function() {
@@ -37,33 +71,33 @@ var API = {
 };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshBands = function() {
-  API.getBands().then(function(data) {
-    var bands = data.map(function(band) {
-      var $a = $("<a>")
-        .text(band.text)
-        .attr("href", "/api/bands/" + band.id);
+// var refreshBands = function() {
+//   API.getBand().then(function(data) {
+//     var $bands = data.map(function(band) {
+//       var $a = $("<a>")
+//         .text(band.text)
+//         .attr("href", "/api/bands/" + band.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": band.id
-        })
-        .append($a);
+//       var $li = $("<li>")
+//         .attr({
+//           class: "list-group-item",
+//           "data-id": band.id
+//         })
+//         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//       var $button = $("<button>")
+//         .addClass("btn btn-danger float-right delete")
+//         .text("ｘ");
 
-      $li.append($button);
+//       $li.append($button);
 
-      return $li;
-    });
+//       return $li;
+//     });
 
-    bandList.empty();
-    bandList.append(bands);
-  });
-};
+//     bandList.empty();
+//     bandList.append($bands);
+//   });
+// };
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
@@ -76,25 +110,23 @@ var handleFormSubmit = function(event) {
     bandPhotoURL: bandPhotoURL.val().trim(),
     bandHometown: bandHometown.val().trim(),
     bandGenre: bandGenre.val().trim(),
-    bandBio: bandBio.val().trim(),
-    bandDiscog: [
-      {
-        discTitle: discTitle.val().trim(),
-        discYear: discYear.val().trim(),
-        discTracks: discTracks.val().trim(),
-        bandId: newBand.bandId
-      }
-    ],
-    bandTours: [
-      {
-        tourVenue: tourVenue.val().trim(),
-        tourCity: tourCity.val().trim(),
-        tourState: tourState.val().trim(),
-        tourDate: tourDate.val().trim(),
-        tourTime: tourTime.val().trim(),
-        bandId: newBand.bandId
-      }
-    ]
+    bandBio: bandBio.val().trim()
+  };
+
+  var newDiscog1 = {
+    discTitle: discTitle1.val().trim(),
+    discYear: discYear1.val().trim(),
+    discTracks: discTracks1.val().trim(),
+    bandId: newBandId
+  };
+
+  var newTours1 = {
+    tourVenue: tourVenue1.val().trim(),
+    tourCity: tourCity1.val().trim(),
+    tourState: tourState1.val().trim(),
+    tourDate: tourDate1.val().trim(),
+    tourTime: tourTime1.val().trim(),
+    bandId: newBandId[0]
   };
 
   if (!bandName.text) {
@@ -102,28 +134,39 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveBand(newBand).then(function() {
-    refreshBands();
-  });
+  API.saveBand(newBand);
+  // .then(function() {
+  //   refreshBands();
+  // });
+
+  API.saveDiscog(newDiscog1);
+  // .then(function() {
+  //   refreshBands();
+  // });
+
+  API.saveTours(newTours1);
+  // .then(function() {
+  //   refreshBands();
+  // });
 
   bandName.val("");
   bandPhotoURL.val("");
   bandHometown.val("");
-  bandGenre.val("Rock");
+  bandGenre.val("");
   bandBio.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+// var handleDeleteBtnClick = function() {
+//   var idToDelete = $(this)
+//     .parent()
+//     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
-};
+//   API.deleteExample(idToDelete).then(function() {
+//     refreshExamples();
+//   });
+// };
 
 var modalToggle = function() {
   $("#tour-dates").modal("toggle");

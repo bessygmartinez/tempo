@@ -5,7 +5,7 @@
 
         <div class="row mb-1 mt-0">
           <div class="col-12">
-            <h1 class="display-4 band-name">UPDATE BAND</h1>
+            <h1 class="display-4 band-name">UPDATE BAND INFO</h1>
             <hr>
           </div>
         </div>
@@ -14,12 +14,13 @@
           <div class="col-12 text-left">
             <form class="clearfix my-3" action="POST">
 
-             <label class="input-group-text bg-success text-white col-3" for="bandGenre">Genre</label>
+              <!-- START GENRE SECTION -->
+              <label class="input-group-text bg-success text-white col-3" for="bandGenre"><strong>GENRE</strong></label>
               <div class="input-group mb-5">
                 <div class="input-group-prepend">
-            
+
                 </div>
-                <select class="custom-select" id="bandGenre">
+                <select class="custom-select" id="bandGenre" value={{bandGenre}}>
                   <option value="Electronic">Electronic</option>
                   <option value="HipHop/R&B">HipHop/R&B</option>
                   <option value="Jazz">Jazz</option>
@@ -27,93 +28,204 @@
                   <option value="Rock">Rock</option>
                 </select>
               </div>
+              <!-- END GENRE SECTION -->
 
-            <span class="input-group-text bg-success text-white col-3" id="bandNameLabel">Name</span>
+              <!-- START NAME SECTION -->
+              <span class="input-group-text bg-success text-white col-3" id="bandNameLabel"><strong>NAME</strong></span>
               <div class="input-group mb-5">
                 <div class="input-group-prepend">
+
                 </div>
-                <input type="text" class="form-control" id="bandName" value={{bandName}} required>
+                <input type="text" class="form-control" value={{bandName}} id="bandName" required>
               </div>
+              <!-- END NAME SECTION -->
 
-            <span class="input-group-text bg-success text-white col-3" id="bandPhotoLabel">Photo URL</span>
+              <!-- START PHOTOURL SECTION -->
+              <span class="input-group-text bg-success text-white col-3" id="bandPhotoLabel"><strong>PHOTO
+                  URL</strong></span>
               <div class="input-group mb-5">
                 <div class="input-group-prepend">
+
                 </div>
                 <input type="text" class="form-control" value={{bandPhotoURL}} id="bandPhotoURL"
                   required>
               </div>
+              <!-- END PHOTOURL SECTION -->
 
-            <span class="input-group-text bg-success text-white col-3" id="bandHometownLabel">Hometown</span>
+              <!-- START HOMETOWN SECTION -->
+              <span class="input-group-text bg-success text-white col-3"
+                id="bandHometownLabel"><strong>HOMETOWN</strong></span>
               <div class="input-group mb-5">
                 <div class="input-group-prepend">
-                  
+
                 </div>
                 <input type="text" class="form-control" value={{bandHometown}} id="bandHometown"
                   required>
               </div>
+              <!-- END HOMETOWN SECTION -->
 
-            <span class="input-group-text bg-success text-white col-3" id="bandBioLabel">Short Bio</span>
+              <!-- END BIO SECTION -->
+              <span class="input-group-text bg-success text-white col-3" id="bandBioLabel"><strong>SHORT
+                  BIO</strong></span>
               <div class="input-group mb-5">
                 <div class="input-group-prepend">
 
                 </div>
-                <textarea class="form-control" value={{bandBio}} id="bandBio"
-                  required></textarea>
+                <textarea class="form-control" value={{bandBio}} id="bandBio" required></textarea>
               </div>
+              <!-- END BIO SECTION -->
 
-            <span class="input-group-text bg-success text-white col-3" id="bandDiscogLabel">Discography</span>
+              <!-- START DISCOGRAPHY SECTION -->
+              <span class="input-group-text bg-success text-white col-3"
+                id="bandDiscogLabel"><strong>DISCOGRAPHY</strong></span>
+
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #1 Title</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Album #1 Title" id="discogTitle">
+                <input type="text" class="form-control" value={{this.discTitle}} id="discTitle1">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #1 Year</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Album #1 Year" id="discogYear">
+                <input type="text" class="form-control" value={{this.discYear}} id="discYear1">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #1 Tracks</span>
                 </div>
-                <input type="text" class="form-control" placeholder="(Number of Tracks)" id="discogTracks">                          
+                <input type="text" class="form-control" value={{this.discTracks}} id="discTracks1">
               </div>
 
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #2 Title</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Album #2 Title" id="discogTitle">
+                <input type="text" class="form-control" value={{this.discTitle}} id="discTitle2">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #2 Year</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Album #2 Year" id="discogYear">
+                <input type="text" class="form-control" value={{this.discYear}} id="discYear2">
 
                 <div class="input-group-prepend">
-                  <span class="input-group-text">Album #2 Track #</span>
+                  <span class="input-group-text">Album #2 Tracks</span>
                 </div>
-                <input type="text" class="form-control" placeholder="(Number of Tracks)" id="discogTracks">                          
+                <input type="text" class="form-control" value={{this.discTracks}} id="discTracks2">
               </div>
 
-                            <div class="input-group mb-3">
+              <div class="input-group mb-5">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #3 Title</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Album #3 Title" id="discogTitle">
+                <input type="text" class="form-control" value={{this.discTitle}} id="discTitle3">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #3 Year</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Album #3 Year" id="discogYear">
+                <input type="text" class="form-control" value={{this.discYear}} id="discYear3">
 
                 <div class="input-group-prepend">
-                  <span class="input-group-text">Album #3 Track #</span>
+                  <span class="input-group-text">Album #3 Tracks</span>
                 </div>
-                <input type="text" class="form-control" placeholder="(Number of Tracks)" id="discogTracks">                          
+                <input type="text" class="form-control" value="{{this.discTracks}}" id="discTracks3">
+              </div>
+              <!-- END DISCOGRAPHY SECTION -->
+
+              <!-- START TOURS SECTION -->
+              <span class="input-group-text bg-success text-white col-3"
+                id="bandDiscogLabel"><strong>TOUR DATES</strong></span>
+
+              <div class="input-group mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #1 Name</span>
+                </div>
+                <input type="text" class="form-control" value="{{this.tourVenue}}" id="tourVenue1">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #1 City</span>
+                </div>
+                <input type="text" class="form-control" value="{{this.tourCity}}, {{tourState}}" id="tourCity1">
+                
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #1 State</span>
+                </div>
+                <input type="text" class="form-control" placeholder="State" id="tourState1">
+                </div>
+
+              <div class="input-group mb-5">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #1 Date</span>
+                </div>
+                <input type="text" class="form-control" placeholder="YYYY-MM-DD" id="tourDate1">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #1 Time</span>
+                </div>
+                <input type="text" class="form-control" placeholder="HH:MM" id="tourTime1">
               </div>
 
-              <button id="submitNewband" class="btn btn-success float-right">Update</button>
+                <div class="input-group mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #2 Name</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Name" id="tourVenue2">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #2 City</span>
+                </div>
+                <input type="text" class="form-control" placeholder="City" id="tourCity2">
+                
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #2 State</span>
+                </div>
+                <input type="text" class="form-control" placeholder="State" id="tourState2">
+                </div>
+
+              <div class="input-group mb-5">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #2 Date</span>
+                </div>
+                <input type="text" class="form-control" placeholder="YYYY-MM-DD" id="tourDate2">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #2 Time</span>
+                </div>
+                <input type="text" class="form-control" placeholder="HH:MM" id="tourTime2">
+              </div>
+
+                <div class="input-group mb-1">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #3 Name</span>
+                </div>
+                <input type="text" class="form-control" placeholder="Name" id="tourVenue3">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #3 City</span>
+                </div>
+                <input type="text" class="form-control" placeholder="City" id="tourCity3">
+                
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #3 State</span>
+                </div>
+                <input type="text" class="form-control" placeholder="State" id="tourState3">
+                </div>
+
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #3 Date</span>
+                </div>
+                <input type="text" class="form-control" placeholder="YYYY-MM-DD" id="tourDate3">
+
+                <div class="input-group-prepend">
+                  <span class="input-group-text">Venue #3 Time</span>
+                </div>
+                <input type="text" class="form-control" placeholder="HH:MM" id="tourTime3">
+              </div>
+              
+
+              <!-- END TOURS SECTION -->
+
+              <button id="submitNewband" class="btn btn-success float-right">Submit</button>
             </form>
 
             {{!-- <p>

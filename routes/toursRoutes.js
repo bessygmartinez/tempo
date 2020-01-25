@@ -5,7 +5,7 @@ module.exports = function(app) {
     app.get("/api/tours", function(req, res) {
         db.Tours.findAll({
             include: [
-                { model: db.Band, attributes: ["bandName"]}
+                { model: db.Bands, attributes: ["bandName"]}
             ]
         }).then(function(dbBands) {
             res.json(dbBands);
@@ -16,7 +16,7 @@ module.exports = function(app) {
     app.get("/api/tours/:bandId", function(req, res) {
         db.Tours.findAll({
             include: [
-                { model: db.Band, attributes: ["bandName"]}
+                { model: db.Bands, attributes: ["bandName"]}
             ],
             where: {
                 bandId: req.params.bandId

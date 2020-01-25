@@ -12,16 +12,43 @@ module.exports = function (app) {
                 { model: db.Discog },
                 { model: db.Tours }
             ]
+            
         }).then(function (dbBands) {
+
+            let albumObj = [];
+
+            for (let i = 0; i < dbBands.Discogs.length; i++) {
+                let albumInfo = {};
+
+                albumInfo["discTitle"] = dbBands.Discogs[i].discTitle;
+                albumInfo["discYear"] = dbBands.Discogs[i].discYear;
+                albumInfo["discTracks"] = dbBands.Discogs[i].discTracks;
+
+                albumObj.push(albumInfo);
+            }
+
+            let toursObj = []
+
+            for (let i = 0; i < dbBands.Tours.length; i++) {
+                let tourInfo = {};
+
+                tourInfo["tourVenue"] = dbBands.Tours[i].tourVenue;
+                tourInfo["tourCity"] = dbBands.Tours[i].tourCity;
+                tourInfo["tourState"] = dbBands.Tours[i].tourState;
+                tourInfo["tourDate"] = dbBands.Tours[i].tourDate;
+                tourInfo["tourTime"] = dbBands.Tours[i].tourTime;
+
+                toursObj.push(tourInfo);
+            }
+
             res.render("index", {
                 bandName: dbBands.bandName,
                 bandPhotoURL: dbBands.bandPhotoURL,
                 bandHometown: dbBands.bandHometown,
                 bandGenre: dbBands.bandGenre,
                 bandBio: dbBands.bandBio,
-                // ***need to figure our a way to include these two (use include like she did below to include the album and discography tables)
-                // albums: albumObj,
-                // tours: toursObj
+                albums: albumObj,
+                tours: toursObj,
             });
         });
     });

@@ -98,7 +98,7 @@ module.exports = function (app) {
             .findOne({
                 where: { bandName: req.params.bandName },
                 include: [
-                    { model: db.Discog },
+                    { model: db.Discogs },
                     { model: db.Tours }
                 ]
             })

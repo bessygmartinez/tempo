@@ -20,7 +20,7 @@
                 <div class="input-group-prepend">
 
                 </div>
-                <select class="custom-select" id="bandGenre" value={{bandGenre}}>
+                <select class="custom-select" id="bandGenre" value="{{bandGenre}}">
                   <option value="Electronic">Electronic</option>
                   <option value="HipHop/R&B">HipHop/R&B</option>
                   <option value="Jazz">Jazz</option>
@@ -36,7 +36,7 @@
                 <div class="input-group-prepend">
 
                 </div>
-                <input type="text" class="form-control" value={{bandName}} id="bandName" required>
+                <input type="text" class="form-control" value="{{bandName}}" id="bandName" required>
               </div>
               <!-- END NAME SECTION -->
 
@@ -47,7 +47,7 @@
                 <div class="input-group-prepend">
 
                 </div>
-                <input type="text" class="form-control" value={{bandPhotoURL}} id="bandPhotoURL"
+                <input type="text" class="form-control" value="{{bandPhotoURL}}" id="bandPhotoURL"
                   required>
               </div>
               <!-- END PHOTOURL SECTION -->
@@ -59,7 +59,7 @@
                 <div class="input-group-prepend">
 
                 </div>
-                <input type="text" class="form-control" value={{bandHometown}} id="bandHometown"
+                <input type="text" class="form-control" value="{{bandHometown}}" id="bandHometown"
                   required>
               </div>
               <!-- END HOMETOWN SECTION -->
@@ -71,7 +71,7 @@
                 <div class="input-group-prepend">
 
                 </div>
-                <textarea class="form-control" value={{bandBio}} id="bandBio" required></textarea>
+                <textarea class="form-control" value="{{bandBio}}" id="bandBio" required></textarea>
               </div>
               <!-- END BIO SECTION -->
 
@@ -83,46 +83,46 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #1 Title</span>
                 </div>
-                <input type="text" class="form-control" value={{this.discTitle}} id="discTitle1">
+                <input type="text" class="form-control" value="{{this.discTitle}}" id="discTitle1">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #1 Year</span>
                 </div>
-                <input type="text" class="form-control" value={{this.discYear}} id="discYear1">
+                <input type="text" class="form-control" value="{{this.discYear}}" id="discYear1">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #1 Tracks</span>
                 </div>
-                <input type="text" class="form-control" value={{this.discTracks}} id="discTracks1">
+                <input type="text" class="form-control" value="{{this.discTracks}}" id="discTracks1">
               </div>
 
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #2 Title</span>
                 </div>
-                <input type="text" class="form-control" value={{this.discTitle}} id="discTitle2">
+                <input type="text" class="form-control" value="{{this.discTitle}}" id="discTitle2">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #2 Year</span>
                 </div>
-                <input type="text" class="form-control" value={{this.discYear}} id="discYear2">
+                <input type="text" class="form-control" value="{{this.discYear}}" id="discYear2">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #2 Tracks</span>
                 </div>
-                <input type="text" class="form-control" value={{this.discTracks}} id="discTracks2">
+                <input type="text" class="form-control" value="{{this.discTracks}}" id="discTracks2">
               </div>
 
               <div class="input-group mb-5">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #3 Title</span>
                 </div>
-                <input type="text" class="form-control" value={{this.discTitle}} id="discTitle3">
+                <input type="text" class="form-control" value="{{this.discTitle}}" id="discTitle3">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #3 Year</span>
                 </div>
-                <input type="text" class="form-control" value={{this.discYear}} id="discYear3">
+                <input type="text" class="form-control" value="{{this.discYear}}" id="discYear3">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Album #3 Tracks</span>
@@ -144,88 +144,89 @@
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #1 City</span>
                 </div>
-                <input type="text" class="form-control" value="{{this.tourCity}}, {{tourState}}" id="tourCity1">
+                <input type="text" class="form-control" value="{{this.tourCity}}" id="tourCity1">
                 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #1 State</span>
                 </div>
-                <input type="text" class="form-control" placeholder="State" id="tourState1">
+                <input type="text" class="form-control" value="{{this.tourState}}" id="tourState1">
                 </div>
 
               <div class="input-group mb-5">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #1 Date</span>
                 </div>
-                <input type="text" class="form-control" placeholder="YYYY-MM-DD" id="tourDate1">
+                <input type="text" class="form-control" value="{{this.tourDate}}" id="tourDate1">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #1 Time</span>
                 </div>
-                <input type="text" class="form-control" placeholder="HH:MM" id="tourTime1">
+                <input type="text" class="form-control" value="{{this.tourTime}}" id="tourTime1">
               </div>
 
                 <div class="input-group mb-1">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #2 Name</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Name" id="tourVenue2">
+                <input type="text" class="form-control" value="{{this.tourVenue}}" id="tourVenue2">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #2 City</span>
                 </div>
-                <input type="text" class="form-control" placeholder="City" id="tourCity2">
+                <input type="text" class="form-control" value="{{this.tourCity}}" id="tourCity2">
                 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #2 State</span>
                 </div>
-                <input type="text" class="form-control" placeholder="State" id="tourState2">
+                <input type="text" class="form-control" value="{{this.tourState}}" id="tourState2">
                 </div>
 
               <div class="input-group mb-5">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #2 Date</span>
                 </div>
-                <input type="text" class="form-control" placeholder="YYYY-MM-DD" id="tourDate2">
+                <input type="text" class="form-control" value="{{this.tourDate}}" id="tourDate2">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #2 Time</span>
                 </div>
-                <input type="text" class="form-control" placeholder="HH:MM" id="tourTime2">
+                <input type="text" class="form-control" value="{{this.tourTime}}" id="tourTime2">
               </div>
 
                 <div class="input-group mb-1">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #3 Name</span>
                 </div>
-                <input type="text" class="form-control" placeholder="Name" id="tourVenue3">
+                <input type="text" class="form-control" value="{{this.tourVenue}}" id="tourVenue3">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #3 City</span>
                 </div>
-                <input type="text" class="form-control" placeholder="City" id="tourCity3">
+                <input type="text" class="form-control" value="{{this.tourCity}}" id="tourCity3">
                 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #3 State</span>
                 </div>
-                <input type="text" class="form-control" placeholder="State" id="tourState3">
+                <input type="text" class="form-control" value="{{this.tourState}}" id="tourState3">
                 </div>
 
               <div class="input-group mb-3">
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #3 Date</span>
                 </div>
-                <input type="text" class="form-control" placeholder="YYYY-MM-DD" id="tourDate3">
+                <input type="text" class="form-control" value="{{this.tourDate}}" id="tourDate3">
 
                 <div class="input-group-prepend">
                   <span class="input-group-text">Venue #3 Time</span>
                 </div>
-                <input type="text" class="form-control" placeholder="HH:MM" id="tourTime3">
+                <input type="text" class="form-control" value="{{this.tourTime}}" id="tourTime3">
               </div>
               
 
               <!-- END TOURS SECTION -->
 
-              <button id="submitNewband" class="btn btn-success float-right">Submit</button>
+              <button id="submitNewband" class="btn btn-success float-right">Update</button>
+              <button id="deleteBand" class="btn btn-success float-right">Delete</button>
             </form>
 
             {{!-- <p>

@@ -2,6 +2,8 @@
 // var $exampleText = $("#example-text");
 // var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submitNewband");
+var $updateBtn = $("#updateBand");
+var $deleteBtn = $("#deleteBand");
 // var $exampleList = $("#example-list");
 var $tourdatesBtn = $("#tour-dates-btn");
 var bandName = $("#bandName");
@@ -79,7 +81,7 @@ var API = {
 
     deleteBand: function(id) {
         return $.ajax({
-            url: "/bands" + id,
+            url: "/api/bands" + id,
             type: "DELETE"
         });
     }
@@ -117,73 +119,82 @@ var API = {
 // handleFormSubmit is called whenever we submit a new band
 // Save the new band to the db and refresh the list
 var handleFormSubmit = function(event) {
-        event.preventDefault();
-        var newBand = {
-            bandName: bandName.val().trim(),
-            bandPhotoURL: bandPhotoURL.val().trim(),
-            bandHometown: bandHometown.val().trim(),
-            bandGenre: bandGenre.val().trim(),
-            bandBio: bandBio.val().trim()
-        };
-        console.log(newBand);
+    event.preventDefault();
+    var newBand = {
+        bandName: bandName.val().trim(),
+        bandPhotoURL: bandPhotoURL.val().trim(),
+        bandHometown: bandHometown.val().trim(),
+        bandGenre: bandGenre.val().trim(),
+        bandBio: bandBio.val().trim()
+    };
+    console.log(newBand);
 
-        var newDiscog1 = {
-            discTitle: discTitle1.val().trim(),
-            discYear: discYear1.val().trim(),
-            discTracks: discTracks1.val().trim(),
-        };
-        console.log(newDiscog1);
-        var newTours1 = {
-            tourVenue: tourVenue1.val().trim(),
-            tourCity: tourCity1.val().trim(),
-            tourState: tourState1.val().trim(),
-            tourDate: tourDate1.val().trim(),
-            tourTime: tourTime1.val().trim(),
-        };
-        console.log(newTours1;
+    var newDiscog1 = {
+        discTitle: discTitle1.val().trim(),
+        discYear: discYear1.val().trim(),
+        discTracks: discTracks1.val().trim(),
+    };
+    console.log(newDiscog1);
+    var newTours1 = {
+        tourVenue: tourVenue1.val().trim(),
+        tourCity: tourCity1.val().trim(),
+        tourState: tourState1.val().trim(),
+        tourDate: tourDate1.val().trim(),
+        tourTime: tourTime1.val().trim(),
+    };
+    console.log(newTours1);
 
-            if (!bandName.text) {
-                alert("You must enter a name for your band!");
-                return;
-            }
+    if (!bandName.text) {
+        alert("You must enter a name for your band!");
+        return;
+    }
 
-            API.saveBand(newBand);
-            // .then(function() {
-            //   refreshBands();
-            // });
+    API.saveBand(newBand);
+    // .then(function() {
+    //   refreshBands();
+    // });
 
-            API.saveDiscog(newDiscog1);
-            // .then(function() {
-            //   refreshBands();
-            // });
+    API.saveDiscog(newDiscog1);
+    // .then(function() {
+    //   refreshBands();
+    // });
 
-            API.saveTours(newTours1);
-            // .then(function() {
-            //   refreshBands();
-            // });
+    API.saveTours(newTours1);
+    // .then(function() {
+    //   refreshBands();
+    // });
 
-            bandName.val(""); bandPhotoURL.val(""); bandHometown.val(""); bandGenre.val(""); bandBio.val("");
-        };
+    API.deleteBand(id);
+    // .then(function() {
+    //   refreshBands();
+    // });
 
-        // handleDeleteBtnClick is called when an example's delete button is clicked
-        // Remove the example from the db and refresh the list
-        // var handleDeleteBtnClick = function() {
-        //   var idToDelete = $(this)
-        //     .parent()
-        //     .attr("data-id");
+    bandName.val("");
+    bandPhotoURL.val("");
+    bandHometown.val("");
+    bandGenre.val("");
+    bandBio.val("");
+};
 
-        //   API.deleteExample(idToDelete).then(function() {
-        //     refreshExamples();
-        //   });
-        // };
+// handleDeleteBtnClick is called when a bands delete button is clicked
+// Remove the band from the db and refresh the list
+var handleDeleteBtnClick = function() {
+    var idToDelete = $(this)
+        .parent()
+        .attr("data-id");
 
-        var modalToggle = function() {
-            $("#tour-dates").modal("toggle");
-        };
+    API.deleteBand(idToDelete).then(function() {
+        refreshBands();
+    });
+};
 
-        // Add event listeners to the submit and delete buttons
-        $submitBtn.on("click", handleFormSubmit);
-        // $exampleList.on("click", ".delete", handleDeleteBtnClick);
+var modalToggle = function() {
+    $("#tour-dates").modal("toggle");
+};
 
-        //Even listeners for tour dates modal
-        $tourdatesBtn.on("click", modalToggle);
+// Add event listeners to the submit and delete buttons
+$submitBtn.on("click", handleFormSubmit);
+$deleteBtn.on("click", ".delete", handleDeleteBtnClick);
+
+//Even listeners for tour dates modal
+$tourdatesBtn.on("click", modalToggle);

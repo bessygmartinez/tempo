@@ -13,7 +13,8 @@
 
         <div class="row">
           <div class="col-12 text-left">
-            <form class="clearfix my-3" action="POST">
+            {{!-- <form class="clearfix my-3" action="POST"> --}}
+            <form class="clearfix my-3">
 
               <!-- START GENRE SECTION -->
               <label class="input-group-text bg-success text-white col-3" for="bandGenre"><strong>GENRE</strong></label>
@@ -48,8 +49,7 @@
                 <div class="input-group-prepend">
 
                 </div>
-                <input type="text" class="form-control" value="{{bandPhotoURL}}" id="bandPhotoURL"
-                  required>
+                <input type="text" class="form-control" value="{{bandPhotoURL}}" id="bandPhotoURL">
               </div>
               <!-- END PHOTOURL SECTION -->
 
@@ -60,8 +60,7 @@
                 <div class="input-group-prepend">
 
                 </div>
-                <input type="text" class="form-control" value="{{bandHometown}}" id="bandHometown"
-                  required>
+                <input type="text" class="form-control" value="{{bandHometown}}" id="bandHometown">
               </div>
               <!-- END HOMETOWN SECTION -->
 
@@ -72,8 +71,9 @@
                 <div class="input-group-prepend">
 
                 </div>
-                <textarea class="form-control" value="{{bandBio}}" id="bandBio" required></textarea>
+                <textarea class="form-control" value="{{bandBio}}" id="bandBio" > {{bandBio}} </textarea>
               </div>
+
               <!-- END BIO SECTION -->
 
               <!-- START DISCOGRAPHY SECTION -->

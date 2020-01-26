@@ -4,6 +4,8 @@ module.exports = function(sequelize, DataTypes) {
     var Band = sequelize.define("Band", {
         bandId: {
             type: DataTypes.INTEGER,
+            // defaultValue: 0,
+            autoIncrement: true,
             primaryKey: true
         },
         bandName: DataTypes.STRING,

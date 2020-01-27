@@ -3,9 +3,9 @@ let db = require("../models");
 module.exports = function(app) {
     //Get all bands
     app.get("/api/bands", function(req, res) {
-        db.Band.findAll({
+        db.Bands.findAll({
             include: [
-                { model: db.Discog },
+                { model: db.Discogs },
                 { model: db.Tours }
             ]
         }).then(function(dbBands) {
@@ -14,13 +14,13 @@ module.exports = function(app) {
     });
 
     app.get("/api/bands/:bandId", function(req, res) {
-        db.Band.findOne({
+        db.Bands.findOne({
             include: [
-                { model: db.Discog },
+                { model: db.Discogs },
                 { model: db.Tours }
             ],
             where: {
-                bandId: req.params.bandId
+               bandId: req.params.bandId
             }
         }).then(function(dbBand) {
             res.json(dbBand);
@@ -37,35 +37,20 @@ module.exports = function(app) {
         //     bandBio: req.body.bandBio
         // });
         console.log("You hit the band POST route!");
-        db.Band.create(req.body).then(function(dbBand) {
-            res.json(dbBand);
-        });
-    });
-
-    //update a new band
-    app.put("/api/bands/:bandId", function(req, res) {
-        // let newBand = new Band({
-        //     bandName: req.body.bandName,
-        //     bandPhotoURL: req.body.bandPhotoURL,
-        //     bandGenre: req.body.bandGenre,
-        //     bandHometown: req.body.bandHometown,
-        //     bandBio: req.body.bandBio
-        // });
-        console.log("You hit the band POST/UPDATE route!");
-        db.Band.create(req.body).then(function(dbBand) {
+        db.Bands.create(req.body).then(function(dbBand) {
             res.json(dbBand);
         });
     });
 
     //Delete a band by id
     app.delete("/api/bands/:bandId", function(req, res) {
-        db.Band.destroy({
-                where: {
-                    bandId: req.params.bandId
-                }
-            })
-            .then(function(dbBand) {
-                res.json(dbBand);
-            });
+        db.Bands.destroy({
+           where: { 
+               bandId: req.params.bandId
+            }
+        })
+        .then(function(dbBand) {
+            res.json(dbBand);
+        });
     });
 };

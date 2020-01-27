@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
         tourTime: DataTypes.TIME
     });
     Tours.associate = (models) => {
-        Tours.belongsTo(models.Band, {foreignKey: "bandId", onDelete: "CASCADE" });
+        Tours.belongsTo(models.Bands, {foreignKey: "bandId", onDelete: "CASCADE" });
     }
     return Tours;
 };

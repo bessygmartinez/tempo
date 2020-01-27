@@ -5,11 +5,11 @@ var Sequelize = require("sequelize");
 module.exports = function(app) {
     // Load index page
     app.get("/", function(req, res) {
-        db.Band.findOne({
+        db.Bands.findOne({
             order: Sequelize.literal('rand()'),
             limit: 1,
             include: [
-                { model: db.Discog },
+                { model: db.Discogs },
                 { model: db.Tours }
             ]
         }).then(function(dbBands) {
@@ -27,7 +27,7 @@ module.exports = function(app) {
     });
 
     app.get("/bands/a-z", function(req, res) {
-        db.Band
+        db.Bands
             .findAll({
                 order: [
                     ["bandName", "ASC"]
@@ -45,7 +45,7 @@ module.exports = function(app) {
     });
 
     app.get("/bands/bygenre", function(req, res) {
-        db.Band.findAll({
+        db.Bands.findAll({
                 where: { bandGenre: "Electronic" },
                 order: [
                     ["bandName", "ASC"]
@@ -57,7 +57,7 @@ module.exports = function(app) {
                     electronicBands.push(allElectronic[i])
                 }
 
-                db.Band.findAll({
+                db.Bands.findAll({
                         where: { bandGenre: "Hip-Hop/R&B" },
                         order: [
                             ["bandName", "ASC"]
@@ -69,7 +69,7 @@ module.exports = function(app) {
                             hipHopBands.push(allHipHop[i])
                         }
 
-                        db.Band.findAll({
+                        db.Bands.findAll({
                                 where: { bandGenre: "Jazz" },
                                 order: [
                                     ["bandName", "ASC"]
@@ -81,7 +81,7 @@ module.exports = function(app) {
                                     jazzBands.push(allJazz[i])
                                 }
 
-                                db.Band.findAll({
+                                db.Bands.findAll({
                                         where: { bandGenre: "Pop" },
                                         order: [
                                             ["bandName", "ASC"]
@@ -93,7 +93,7 @@ module.exports = function(app) {
                                             popBands.push(allPop[i])
                                         }
 
-                                        db.Band.findAll({
+                                        db.Bands.findAll({
                                                 where: { bandGenre: "Rock" },
                                                 order: [
                                                     ["bandName", "ASC"]
@@ -120,13 +120,13 @@ module.exports = function(app) {
     });
     // app.get("/bands/:bandName", function(req, res) {
     app.get("/bands/:bandId", function(req, res) {
-        db.Band
+        db.Bands
             .findOne({
                 // where: { bandName: req.params.bandName },
                 where: { bandId: req.params.bandId },
 
                 include: [
-                    { model: db.Discog },
+                    { model: db.Discogs },
                     { model: db.Tours }
                 ]
             })
@@ -225,11 +225,11 @@ module.exports = function(app) {
     // });
 
     app.get("/updateband/:bandId", function(req, res) {
-        db.Band
+        db.Bands
             .findOne({
                 where: { bandId: req.params.bandId },
                 include: [
-                    { model: db.Discog },
+                    { model: db.Discogs },
                     { model: db.Tours }
                 ]
             })

@@ -8,15 +8,15 @@ module.exports = function(sequelize, DataTypes) {
         },
         discTitle: {
             type: DataTypes.STRING,
-            allowNull: true
+            omitNull: true
         },
         discYear: {
             type: DataTypes.STRING,
-            allowNull: true
+            omitNull: true
         },
         discTracks: {
             type: DataTypes.STRING,
-            allowNull: true
+            omitNull: true
         },
         },
         {

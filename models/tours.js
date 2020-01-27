@@ -8,23 +8,23 @@ module.exports = function(sequelize, DataTypes) {
         },
         tourVenue: {
             type: DataTypes.STRING,
-            allowNull: true
+            omitNull: true
         },
         tourCity: {
             type: DataTypes.STRING,
-            allowNull: true
+            omitNull: true
         },
         tourState: {
             type: DataTypes.STRING,
-            allowNull: true
+            omitNull: true
         },
         tourDate: {
             type: DataTypes.STRING,
-            allowNull: true
+            omitNull: true
         },
         tourTime: {
             type: DataTypes.STRING,
-            allowNull: true
+            omitNull: true
         },
     },
     {

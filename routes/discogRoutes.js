@@ -34,7 +34,7 @@ module.exports = function(app) {
         //     discTracks: req.body.discTracks
         // });
         console.log("You hit the discog POST route!");
-        db.Discog.create(req.body)
+        db.Discogs.create(req.body)
         .then(function(dbBand) {
             res.json(dbBand);
         });

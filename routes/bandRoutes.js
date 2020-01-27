@@ -16,7 +16,7 @@ module.exports = function(app) {
     app.get("/api/bands/:bandId", function(req, res) {
         db.Bands.findOne({
             include: [
-                { model: db.Discog },
+                { model: db.Discogs },
                 { model: db.Tours }
             ],
             where: {

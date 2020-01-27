@@ -6,9 +6,18 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.INTEGER,
             primaryKey: true
         },
-        discTitle: DataTypes.STRING,
-        discYear: DataTypes.STRING,
-        discTracks: DataTypes.STRING
+        discTitle: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        discYear: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        discTracks: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         },
         {
             timestamps: false

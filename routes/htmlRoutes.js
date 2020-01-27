@@ -14,6 +14,7 @@ module.exports = function (app) {
             ]
         }).then(function (dbBands) {
             res.render("index", {
+                bandId: dbBands.bandId,
                 bandName: dbBands.bandName,
                 bandPhotoURL: dbBands.bandPhotoURL,
                 bandHometown: dbBands.bandHometown,
@@ -93,10 +94,10 @@ module.exports = function (app) {
             });
     });
 
-    app.get("/bands/:bandName", function (req, res) {
+    app.get("/bands/:bandId", function (req, res) {
         db.Bands
             .findOne({
-                where: { bandName: req.params.bandName },
+                where: { bandId: req.params.bandId },
                 include: [
                     { model: db.Discogs },
                     { model: db.Tours }
@@ -146,15 +147,6 @@ module.exports = function (app) {
                 }
             });
     });
-
-    // // Load example page and pass in an example by id
-    // app.get("/example/:id", function(req, res) {
-    //     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-    //         res.render("example", {
-    //             example: dbExample
-    //         });
-    //     });
-    // });
 
     app.get("/about", function (req, res) {
         res.render("about");

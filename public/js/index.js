@@ -25,6 +25,16 @@ var tourCity1 = $("#tourCity1");
 var tourState1 = $("#tourState1");
 var tourDate1 = $("#tourDate1");
 var tourTime1 = $("#tourTime1");
+var tourVenue2 = $("#tourVenue2");
+var tourCity2 = $("#tourCity2");
+var tourState2 = $("#tourState2");
+var tourDate2 = $("#tourDate2");
+var tourTime2 = $("#tourTime2");
+var tourVenue3 = $("#tourVenue3");
+var tourCity3 = $("#tourCity3");
+var tourState3 = $("#tourState3");
+var tourDate3 = $("#tourDate3");
+var tourTime3 = $("#tourTime3");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -140,7 +150,22 @@ var handleFormSubmit = function (event) {
     tourState: tourState1.val().trim(),
     tourDate: tourDate1.val().trim(),
     tourTime: tourTime1.val().trim(),
-    bandId: lastBandId
+  };
+
+  var newTours2 = {
+    tourVenue: tourVenue2.val().trim(),
+    tourCity: tourCity2.val().trim(),
+    tourState: tourState2.val().trim(),
+    tourDate: tourDate2.val().trim(),
+    tourTime: tourTime2.val().trim(),
+  };
+
+  var newTours3 = {
+    tourVenue: tourVenue3.val().trim(),
+    tourCity: tourCity3.val().trim(),
+    tourState: tourState3.val().trim(),
+    tourDate: tourDate3.val().trim(),
+    tourTime: tourTime3.val().trim(),
   };
 
   API.saveBand(newBand);
@@ -163,8 +188,16 @@ var handleFormSubmit = function (event) {
     newDiscog3.bandId = lastBandId;
 
     newTours1.bandId = lastBandId;
+    newTours2.bandId = lastBandId;
+    newTours3.bandId = lastBandId;
+
     API.saveDiscog(newDiscog1);
+    API.saveDiscog(newDiscog2);
+    API.saveDiscog(newDiscog3);
+
     API.saveTours(newTours1);
+    API.saveTours(newTours2);
+    API.saveTours(newTours3);
 
   });
 

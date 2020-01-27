@@ -14,8 +14,8 @@ CREATE TABLE Bands (
 /*child/referencing table */
 CREATE TABLE Discogs (
 	discId INT AUTO_INCREMENT,
-	discTitle VARCHAR(255) NOT NULL,
-	discYear VARCHAR(255) NOT NULL,
+	discTitle VARCHAR(255),
+	discYear VARCHAR(255),
 	discTracks INT,
 	bandId INT,
     PRIMARY KEY (discId),
@@ -28,9 +28,9 @@ CREATE TABLE Discogs (
 CREATE TABLE Tours (
 	tourId INT AUTO_INCREMENT PRIMARY KEY,
     tourVenue VARCHAR(255),
-	tourCity VARCHAR(255) NOT NULL,
-	tourState VARCHAR(255) NOT NULL,
-	tourDate DATE,
+	tourCity VARCHAR(255),
+	tourState VARCHAR(255),
+	tourDate VARCHAR(255),
     tourTime TIME,
 	bandId INT,
 	FOREIGN KEY (bandId)

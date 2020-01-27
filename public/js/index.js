@@ -1,9 +1,7 @@
-// Get references to page elements
-// var $exampleText = $("#example-text");
-// var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submitNewband");
-// var $exampleList = $("#example-list");
 var $tourdatesBtn = $("#tour-dates-btn");
+var $addBandModal = $("#add-band-modal");
+
 var bandName = $("#bandName");
 var bandPhotoURL = $("#bandPhotoURL");
 var bandHometown = $("#bandHometown");
@@ -35,6 +33,9 @@ var tourCity3 = $("#tourCity3");
 var tourState3 = $("#tourState3");
 var tourDate3 = $("#tourDate3");
 var tourTime3 = $("#tourTime3");
+
+var newBandObj = [];
+var newBandId;
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -169,6 +170,7 @@ var handleFormSubmit = function (event) {
   };
 
   API.saveBand(newBand);
+
   API.getBands().then(function (bands) {
     console.log(bands);
     let bandIdsArr = [];
@@ -191,6 +193,8 @@ var handleFormSubmit = function (event) {
     newTours2.bandId = lastBandId;
     newTours3.bandId = lastBandId;
 
+    newBandId = lastBandId;
+
     API.saveDiscog(newDiscog1);
     API.saveDiscog(newDiscog2);
     API.saveDiscog(newDiscog3);
@@ -198,6 +202,11 @@ var handleFormSubmit = function (event) {
     API.saveTours(newTours1);
     API.saveTours(newTours2);
     API.saveTours(newTours3);
+
+  
+    newBandObj.push(newBand);
+
+    console.log(newBandObj);
 
   });
 
@@ -255,3 +264,8 @@ $submitBtn.on("click", handleFormSubmit);
 
 //Even listeners for tour dates modal
 $tourdatesBtn.on("click", modalToggle);
+
+$addBandModal.on("click", function() {
+  
+  window.location = "/bands/" + newBandId;
+});

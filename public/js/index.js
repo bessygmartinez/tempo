@@ -56,9 +56,15 @@ var API = {
             type: "GET"
         });
     },
+    updateBand: function(bandId) {
+        return $.ajax({
+            url: "/bands/" + bandId,
+            type: "UPDATE"
+        });
+    },
     deleteBand: function(bandId) {
         return $.ajax({
-            url: "/bands" + bandId,
+            url: "/bands/" + bandId,
             type: "DELETE"
         });
     }

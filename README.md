@@ -1,9 +1,8 @@
 ![Tempo Logo](/public/img/Tempo_logo.png)
 
-tem·po /ˈtempō/ - the speed at which a passage of music is or should be played; the rate or speed of motion or activity; pace.
 **When it comes to music, you want to keep up with the tempo.** Where's the band from? Where are they touring? What's their discography?
 
-Tempo is a centralized database for bands. But not just the well-known or celebrity bands. If you register with Tempo, you can upload your own band's information and be part of the Tempo database. You can also come back and edit or update your band's information. Easy as that! Get your band's name out there and be seen!
+Tempo is a centralized database for bands, but not just the well-known or celebrity bands. You can upload your own band's information and be part of the Tempo database. Once you've entered your band's information, you can come back and edit or update the information. Easy as that! Get your band's name out there and be seen!
 
 ## About
 TEMPO helps users keep up with band information. It displays information for all bands in the database and allows new bands to add their information for other users to see. 

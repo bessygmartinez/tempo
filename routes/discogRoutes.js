@@ -3,9 +3,9 @@ let db = require("../models");
 module.exports = function(app) {
     //Get all discographies
     app.get("/api/discogs", function(req, res) {
-        db.Discog.findAll({
+        db.Discogs.findAll({
             include: [
-                { model: db.Band, attributes: ["bandName"] }
+                { model: db.Bands, attributes: ["bandName"] }
             ]
         }).then(function(dbBands) {
             res.json(dbBands);
@@ -14,9 +14,9 @@ module.exports = function(app) {
 
     //Get discography by bandId
     app.get("/api/discogs/:bandId", function(req, res) {
-        db.Discog.findAll({
+        db.Discogs.findAll({
             include: [
-                { model: db.Band, attributes: ["bandName"]}
+                { model: db.Bands, attributes: ["bandName"]}
             ],
             where: {
                 bandId: req.params.bandId
@@ -42,7 +42,7 @@ module.exports = function(app) {
 
     //Delete a discog by id
     app.delete("/api/discogs/:discId", function(req, res) {
-        db.Discog.destroy({
+        db.Discogs.destroy({
             where: {
                 discId: req.params.discId
             }

@@ -14,7 +14,7 @@ This app uses the Model-View-Controller (MVC) structure to organize our file set
 
 ### 1. Our Home Page displays a **Featured Artist**, click on the band name to find out more information about them!
 
-![Loading Page Demo](\public\tempo_demos\loading_page.gif)
+![Loading Page Demo](https://github.com/bessygmartinez/tempo/blob/readme/tempo_demos/about_page.gif)
 
 ### 2. Click on the **About** page to learn more about our motivation behind the project and meet the team.
 
@@ -42,3 +42,5 @@ This app uses the Model-View-Controller (MVC) structure to organize our file set
   * [Heroku](http://www.heroku.com)
       * Heroku Add-ons:
         * [JawsDB](https://elements.heroku.com/addons/jawsdb)
+
+        

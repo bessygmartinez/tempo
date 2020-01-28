@@ -14,19 +14,19 @@ This app uses the Model-View-Controller (MVC) structure to organize our file set
 
 ### 1. Our Home Page displays a **Featured Artist**, click on the band name to find out more information about them!
 
-![Loading Page Demo](\tempo_demos\loading_page.gif)
+![Loading Page Demo](https://github.com/bessygmartinez/tempo/blob/readme/tempo_demos/loading_page.gif)
 
 ### 2. Click on the **About** page to learn more about our motivation behind the project and meet the team.
 
-![Loading Page Demo](\tempo_demos\about_page.gif)
+![Loading Page Demo](https://github.com/bessygmartinez/tempo/blob/readme/tempo_demos/about_page.gif)
 
 ### 3. Our **Band Directory** displays all of our bands, categorized alphabetically and by genre.
 
-![Loading Page Demo](\tempo_demos\directory_page.gif)
+![Loading Page Demo](https://github.com/bessygmartinez/tempo/blob/readme/tempo_demos/directory_page.gif)
 
 ### 4. Click on the **ADD A BAND** button to enter a new band's information!
 
-![Loading Page Demo](\tempo_demos\add_a_band.gif)
+![Loading Page Demo](https://github.com/bessygmartinez/tempo/blob/readme/tempo_demos/add_a_band.gif)
 
 ## Frameworks Used
 
@@ -34,7 +34,7 @@ This app uses the Model-View-Controller (MVC) structure to organize our file set
   * [Node.js](https://nodejs.org/en/)
       * Node packages:
         * [express](https://www.npmjs.com/package/express)
-        * [express-handlebars](https://www.npmjs.com/package/express-handlebars)
+        * [express-handlebars](https://www.npmjs.com/package/express-handlebars) | Version Required: "^3.1.0"
         * [body-parser](https://www.npmjs.com/package/body-parser)
         * [mysql](https://www.npmjs.com/package/mysql)
         * [nodemon](https://www.npmjs.com/package/nodemon)
@@ -42,3 +42,5 @@ This app uses the Model-View-Controller (MVC) structure to organize our file set
   * [Heroku](http://www.heroku.com)
       * Heroku Add-ons:
         * [JawsDB](https://elements.heroku.com/addons/jawsdb)
+
+        

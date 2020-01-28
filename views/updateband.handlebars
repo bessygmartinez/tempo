@@ -100,6 +100,7 @@
               <!-- END DISCOGRAPHY SECTION -->
 
               <!-- START TOURS SECTION -->
+              <div id="tours-section" class="mb-5">
               <span class="input-group-text bg-success text-white col-3 mt-5"
                 id="bandDiscogLabel"><strong>TOUR DATES</strong></span>
               {{#each tours}}
@@ -132,7 +133,7 @@
                 <input type="text" class="form-control" value="{{this.tourTime}}" id="tourTime{{this.tourId}}">              
               </div>
               {{/each}}
-
+              </div>
               <!-- END TOURS SECTION -->
 
               <button id="submitNewband" class="btn btn-success float-left">Update</button>
@@ -172,3 +173,4 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+<script src="/js/updateBand.js"></script>

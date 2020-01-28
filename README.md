@@ -34,7 +34,7 @@ This app uses the Model-View-Controller (MVC) structure to organize our file set
   * [Node.js](https://nodejs.org/en/)
       * Node packages:
         * [express](https://www.npmjs.com/package/express)
-        * [express-handlebars](https://www.npmjs.com/package/express-handlebars)
+        * [express-handlebars](https://www.npmjs.com/package/express-handlebars) | Version Required: "^3.1.0"
         * [body-parser](https://www.npmjs.com/package/body-parser)
         * [mysql](https://www.npmjs.com/package/mysql)
         * [nodemon](https://www.npmjs.com/package/nodemon)

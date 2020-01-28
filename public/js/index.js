@@ -195,19 +195,43 @@ var handleFormSubmit = function (event) {
 
     newBandId = lastBandId;
 
-    API.saveDiscog(newDiscog1);
-    API.saveDiscog(newDiscog2);
-    API.saveDiscog(newDiscog3);
+    if (newDiscog1.discTitle === "") {
+      console.log("No Discog1")
+      } else {
+        API.saveDiscog(newDiscog1);
+      }
 
-    API.saveTours(newTours1);
-    API.saveTours(newTours2);
-    API.saveTours(newTours3);
+    if (newDiscog2.discTitle === "") {
+      console.log("No Discog2")
+    } else {
+      API.saveDiscog(newDiscog2);
+    }
+    
+    if (newDiscog3.discTitle === "") {
+      console.log("No Discog3")
+    } else {
+      API.saveDiscog(newDiscog3);
+    }
 
+    if (newTours1.tourVenue === "") {
+      console.log("No Tours1")
+    } else {
+      API.saveTours(newTours1);
+    }
+    
+    if (newTours2.tourVenue === "") {
+      console.log("No Tours2")
+    } else {
+      API.saveTours(newTours2);
+    }
+   
+    if (newTours3.tourVenue === "") {
+      console.log("No Tours3")
+    } else {
+      API.saveTours(newTours3);
+    }
   
     newBandObj.push(newBand);
-
-    console.log(newBandObj);
-
   });
 
   if (!bandName.text) {

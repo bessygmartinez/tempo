@@ -227,6 +227,7 @@ module.exports = function(app) {
                     for (let i = 0; i < dbBands.Discogs.length; i++) {
                         let albumInfo = {};
 
+                        albumInfo["discId"] = dbBands.Discogs[i].discId;
                         albumInfo["discTitle"] = dbBands.Discogs[i].discTitle;
                         albumInfo["discYear"] = dbBands.Discogs[i].discYear;
                         albumInfo["discTracks"] = dbBands.Discogs[i].discTracks;
@@ -238,7 +239,8 @@ module.exports = function(app) {
 
                     for (let i = 0; i < dbBands.Tours.length; i++) {
                         let tourInfo = {};
-
+                        
+                        tourInfo["tourId"] = dbBands.Tours[i].tourId;
                         tourInfo["tourVenue"] = dbBands.Tours[i].tourVenue;
                         tourInfo["tourCity"] = dbBands.Tours[i].tourCity;
                         tourInfo["tourState"] = dbBands.Tours[i].tourState;
@@ -254,8 +256,8 @@ module.exports = function(app) {
                         bandHometown: dbBands.bandHometown,
                         bandGenre: dbBands.bandGenre,
                         bandBio: dbBands.bandBio,
-                        // albums: albumObj,
-                        // tours: toursObj,
+                        albums: albumObj,
+                        tours: toursObj,
                         bandId: dbBands.bandId
                     });
                     console.log(toursObj);

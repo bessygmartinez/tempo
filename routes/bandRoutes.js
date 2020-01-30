@@ -29,17 +29,8 @@ module.exports = function(app) {
 
     //Create a new band
     app.post("/api/bands", function(req, res) {
-        // let newBand = new Band({
-        //     bandName: req.body.bandName,
-        //     bandPhotoURL: req.body.bandPhotoURL,
-        //     bandGenre: req.body.bandGenre,
-        //     bandHometown: req.body.bandHometown,
-        //     bandBio: req.body.bandBio
-        // });
         console.log("You hit the band POST route!");
-        db.Bands.create(req.body).then(function(dbBand) {
-            res.json(dbBand);
-        });
+        db.Bands.create(req.body);
     });
 
     //Delete a band by id

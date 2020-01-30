@@ -35,6 +35,7 @@ var tourDate3 = $("#tourDate3");
 var tourTime3 = $("#tourTime3");
 
 var newBandObj = [];
+
 var newBandId;
 
 // The API object contains methods for each kind of request we'll make
@@ -185,6 +186,8 @@ var handleFormSubmit = function (event) {
     lastBandId = lastBand;
     console.log(lastBandId);
 
+    newBand.bandId = lastBandId;
+
     newDiscog1.bandId = lastBandId;
     newDiscog2.bandId = lastBandId;
     newDiscog3.bandId = lastBandId;
@@ -232,6 +235,7 @@ var handleFormSubmit = function (event) {
     }
   
     newBandObj.push(newBand);
+    console.log(newBandObj);
   });
 
   if (!bandName.text) {
@@ -289,7 +293,10 @@ $submitBtn.on("click", handleFormSubmit);
 //Even listeners for tour dates modal
 $tourdatesBtn.on("click", modalToggle);
 
+$('#bandName').keyup(function () {
+  $('#newBandName').text($(this).val());
+});
+
 $addBandModal.on("click", function() {
-  
-  window.location = "/bands/" + newBandId;
+  window.location = "/bands/" + newBandObj[0].bandId;
 });

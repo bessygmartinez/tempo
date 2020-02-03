@@ -137,9 +137,30 @@
               <!-- END TOURS SECTION -->
 
               <button id="updateBand" class="btn btn-success float-left" value={{bandId}}>Update</button>
-              <button id="deleteBand" class="btn btn-danger float-right delete" value={{bandId}}>Delete</button>
+              <button id="deleteBand" class="btn btn-danger float-right">Delete</button>
 
             </form>
+
+            <!-- Modal for band deletion -->
+            <div id="bandDeleteSuccess" class="modal fade" tabindex="-1" role="dialog">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title">Deleted!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body text-center">
+                    <h3 class=""><span id="bandName" class="display-4 band-name">{{bandName}}</span>
+                    <br>has been deleted!</h3>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-lg btn-success" data-dismiss="modal" id="delete-band-modal" value={{bandId}}>Home →</button>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {{!-- <p>
                 Don't have a login? <a href="/bandregister" class="text-success"><strong>Sign up</strong></a> to get
@@ -153,5 +174,5 @@
   </div>
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <script src="/js/index.js"></script>

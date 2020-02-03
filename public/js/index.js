@@ -3,6 +3,7 @@ var $tourdatesBtn = $("#tour-dates-btn");
 var $addBandModal = $("#add-band-modal");
 var $updateBand = $("#updateBand");
 var $deleteBand = $("#deleteBand");
+var $deleteBandModal = $("#delete-band-modal");
 
 var bandName = $("#bandName");
 var bandPhotoURL = $("#bandPhotoURL");
@@ -83,7 +84,10 @@ var API = {
         console.log(bandId);
         return $.ajax({
             url: "/api/bands/" + bandId,
-            type: "DELETE"
+            type: "DELETE",
+            success: function() {
+                window.location = "/"
+            }
         });
     }
 };
@@ -249,6 +253,7 @@ var handleFormSubmit = function(event) {
 // handleDeleteBtnClick is called when an band's delete button is clicked
 //Remove the band from the db and go to index page
 var handleDeleteBtnClick = function(bandId) {
+    event.preventDefault();
     console.log("you hit the FE delete btn function");
     // bandId = $("#deleteBand").val();
     bandId = $(this).attr("value");
@@ -257,14 +262,16 @@ var handleDeleteBtnClick = function(bandId) {
         .attr("value");
     console.log(idToDelete);
 
-    API.deleteBand(idToDelete).then(function() {
-
-        // refreshExamples();
-    });
+    API.deleteBand(idToDelete);
 };
 
 var modalToggle = function() {
     $("#tour-dates").modal("toggle");
+};
+
+var deleteToggle = function() {
+    event.preventDefault();
+    $("#bandDeleteSuccess").modal("toggle");
 };
 
 // Add event listeners to the submit, update and delete buttons
@@ -273,8 +280,9 @@ $submitBtn.on("click", handleFormSubmit);
 $updateBand.on("click", handleFormSubmit);
 
 // $deleteBand.on("click", ".delete", handleDeleteBtnClick);
-$deleteBand.on("click", handleDeleteBtnClick);
+$deleteBand.on("click",  deleteToggle);
 
+$deleteBandModal.on("click", handleDeleteBtnClick);
 
 //Even listeners for tour dates modal
 $tourdatesBtn.on("click", modalToggle);
@@ -282,7 +290,6 @@ $tourdatesBtn.on("click", modalToggle);
 $('#bandName').keyup(function() {
     $('#newBandName').text($(this).val());
 });
-
 
 $addBandModal.on("click", function() {
     window.location = "/bands/" + newBandObj[0].bandId;

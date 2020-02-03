@@ -29,19 +29,23 @@ module.exports = function(app) {
 
     //Create a new band
     app.post("/api/bands", function(req, res) {
-        console.log("You hit the band POST route!");
+        console.log("You hit the new band POST bandRoute!");
         db.Bands.create(req.body);
     });
 
     //Delete a band by id
     app.delete("/api/bands/:bandId", function(req, res) {
+        console.log("You hit the back end band delete bandRoute!");
+        console.log("band id:");
+        console.log(req.params.bandId);
         db.Bands.destroy({
-           where: { 
-               bandId: req.params.bandId
-            }
-        })
-        .then(function(dbBand) {
-            res.json(dbBand);
-        });
+                where: {
+                    bandId: req.params.bandId
+                }
+            })
+            .then(function(dbBands) {
+                console.log("FLASH DELETE SUCCESS");
+                res.json(dbBands);
+            });
     });
 };

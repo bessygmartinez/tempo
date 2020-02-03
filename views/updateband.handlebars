@@ -142,7 +142,7 @@
             </form>
 
             <!-- Modal for band deletion -->
-            <div id="bandDeleteSuccess" class="modal fade" tabindex="-1" role="dialog">
+            <div id="bandDeleteSuccess" class="modal fade" data-backdrop="static" tabindex="-1" role="dialog">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -156,7 +156,7 @@
                     <br>has been deleted!</h3>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-lg btn-success" data-dismiss="modal" id="delete-band-modal" value={{bandId}}>Home →</button>
+                    <button type="button" class="btn btn-lg btn-success" data-target="#staticBackdrop" data-dismiss="modal" id="delete-band-modal" value={{bandId}}>Home →</button>
                   </div>
                 </div>
               </div>
